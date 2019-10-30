@@ -49,7 +49,7 @@
         <header>
     <nav class="navbar">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
+            <div class="navbar-header header-logo"><a href="/">Crazy-Y&#39;s Blog</a></div>
             <div class="menu navbar-right">
                 
                     <a class="menu-item" href="/archives">Posts</a>
@@ -72,7 +72,7 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                    <a href="/">Crazy-Y&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
             </div>
@@ -109,10 +109,10 @@
     <div class="container">
     <div class="intro">
         <div class="avatar">
-            <a href="/archives"><img src="/image/avatar.jpeg"></a>
+            <a href="/archives"><img src="/image/my.jpg"></a>
         </div>
-        <div class="nickname">Jeremy Bentham</div>
-        <div class="description"><p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> <br>Fusce eget urna vitae velit <em>eleifend interdum at ac</em> nisi.</p>
+        <div class="nickname">癫(Crazy-Y)</div>
+        <div class="description"><p>Self-redemption of a rookie <br /> <em>I have always been a grave guard, this world is the grave I see!</em></p>
 </div>
         <div class="links">
             
@@ -124,28 +124,7 @@
                         
                     </a>
                 
-                    <a class="link-item" title="ZhiHu" href="https://www.zhihu.com/people/sirice" target="_blank" rel="noopener">
-                        
-                        
-                            <i class="iconfont icon-zhihu"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="Instagram" href="">
-                        
-                        
-                            <i class="iconfont icon-instagram"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="Reddit" href="">
-                        
-                        
-                            <i class="iconfont icon-reddit"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="Github" href="https://github.com/Siricee" target="_blank" rel="noopener">
+                    <a class="link-item" title="Github" href="https://github.com/JieYangAdmin" target="_blank" rel="noopener">
                         
                         
                             <i class="iconfont icon-github"></i>
@@ -164,7 +143,23 @@
         <span>© Crazy-Y | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
 </footer>
-
+<span id="timeDate" style="text-align: center; font-size: 14px;">载入天数...</span><span id="times" style="text-align: center; font-size: 14px;">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("10/30/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
     </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
