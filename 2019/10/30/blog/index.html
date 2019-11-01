@@ -210,17 +210,19 @@
             
         </section>
         <div style="padding: 20px 0 10px;border-top: 1px solid #eeeeee;">##发表评论##</div>
-        <div id="vcomments"></div>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
-    new Valine({
-        el: '#vcomments',
-        notify: true, // 邮件提醒 v1.1.4新增，下一步中有具体的邮箱设置
-        verify: true,
-        app_id: '{{ theme.valine.appId }}',
-        app_key: '{{ theme.valine.appKey }}',
-        placeholder: '想对Crazy-Y说点什么?'
-    });
+var gitment = new Gitment({
+  owner: 'JieYangAdmin',
+  repo: 'JieYangAdmin.github.io',
+  oauth: {
+    client_id: 'f41a9fb23d972e1d0767',
+    client_secret: '8b2e926f03aeed34a0882985f705ab0471a836a2',
+  },
+})
+gitment.render('container')
 </script>
     </article>
 </div>
