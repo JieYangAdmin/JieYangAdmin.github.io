@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Crazy-Y">
+
+
+
+
+
+<title>从0开始搭建完整react包 | Crazy-Y</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Crazy-Y&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Crazy-Y&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">从0开始搭建完整react包</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Crazy-Y</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 20, 2019&nbsp;&nbsp;12:19:53</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/React/">React</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="创建基本的webpack4-x项目"><a href="#创建基本的webpack4-x项目" class="headerlink" title="创建基本的webpack4.x项目"></a>创建基本的webpack4.x项目</h2><h3 id="初始化包"><a href="#初始化包" class="headerlink" title="初始化包"></a>初始化包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+
+<h3 id="新建目录结构"><a href="#新建目录结构" class="headerlink" title="新建目录结构"></a>新建目录结构</h3><p>创建 src 源代码目录， dist 产品目录</p>
+<p>src/index.html, src/index.js(入口文件), src/package.config.js(配置文件)</p>
+<h3 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack webpack-cli webpack-dev-server html-webpack-plugin -D</span><br><span class="line"><span class="comment">## webpack webpack-cli (webpack和webpack的脚手架)</span></span><br><span class="line"><span class="comment">## webpack-dev-server(快速搭建本地运行环境的工具)</span></span><br><span class="line"><span class="comment">## html-webpack-plugin(在内存生成 html 页面,我们处理 main.js)</span></span><br></pre></td></tr></table></figure>
+<p>在webpack 4.x中，有一个 约定大于配置 的约定，默认打包入口路径是 src -&gt; index.js,打包的输出文件是dist/main.js</p>
+<p>// webpack-dev-server(实时编译) 打包好的 main.js 是托管到内存中，所以在项目根目录中是看不到的；<br>// 但是，我们可以认为，在跟目录中，有一个看不见的main.js<br>package.json/ scripts -&gt; “dev”: “webpack-dev-server –open –port 3000 –hot –progress –compress –host 127.0.0.1”  (npm run dev)<br>(–open:默认编译后自动打开浏览器, –port 3000: 更改端口号, –progress: 打包进度, –compress: 压缩, –host 127.0.0.1: 指定域名)</p>
+<h4 id="src-package-config-js"><a href="#src-package-config-js" class="headerlink" title="src/package.config.js"></a>src/package.config.js</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const path = require(<span class="string">'path'</span>);</span><br><span class="line">const HtmlWebPackPlugin = require(<span class="string">'html-webpack-plugin'</span>); <span class="comment">## 导入 在内存中自动生成 index 页面的插件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 创建一个插件的实例对象</span></span><br><span class="line">const htmlPlugin = new HtmlWebPackPlugin(&#123;</span><br><span class="line">    template: path.join(__dirname,<span class="string">'./src/index.html'</span>), <span class="comment">## 源文件</span></span><br><span class="line">    filename: <span class="string">'index.html'</span> <span class="comment">## 生成的内存中首页的名称</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 向外暴露一个打包的配置对象; </span></span><br><span class="line"><span class="comment">## webpack基于nodejs构建，支持所有的Node API和语法</span></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    <span class="comment">## mode选项必须</span></span><br><span class="line">    mode: <span class="string">'development'</span>, <span class="comment">## development:开发环境  production:产品环境（压缩dist/main.js）</span></span><br><span class="line">    <span class="comment">## 在webpack 4.x中，有一个 约定大于配置 的约定，默认打包入口路径是 src -&gt; index.js</span></span><br><span class="line">    plugins: [</span><br><span class="line">        htmlPlugin</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装配置react"><a href="#安装配置react" class="headerlink" title="安装配置react"></a>安装配置react</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">npm i react react-dom -S</span><br><span class="line"></span><br><span class="line"><span class="comment">## src/index.js</span></span><br><span class="line">import React from <span class="string">'react'</span>; <span class="comment">## 创建组件、虚拟DOM元素，生命周期</span></span><br><span class="line">import ReactDom from <span class="string">'react-dom'</span>; <span class="comment">## 把创建好的 组件 和 虚拟 DOM 放在页面上展示</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 创建虚拟DOM元素</span></span><br><span class="line"><span class="comment">## 参数1： 创建的元素的类型，字符串，表示元素的名称</span></span><br><span class="line"><span class="comment">## 参数2： 是一个对象或null，表示 当前这个DOM元素的属性</span></span><br><span class="line"><span class="comment">## 参数3： 子节点（包括 其它 虚拟DOM 获取 文本子节点）</span></span><br><span class="line"><span class="comment">## 参数n: 其它子节点</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## const myh1 =  React.createElement('h1',null,'这是一个h1');</span></span><br><span class="line">const myh1 =  React.createElement(<span class="string">'h1'</span>,&#123;id:<span class="string">"myh1"</span>,title:<span class="string">"this is a h1"</span>&#125;,<span class="string">'这是一个h1'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用ReactDom 把虚拟DOM 渲染到页面上</span></span><br><span class="line"><span class="comment">## 参数1： 要渲染的那个虚拟DOM元素</span></span><br><span class="line"><span class="comment">## 参数2： 指定虚拟DOM容器</span></span><br><span class="line">ReactDom.render(myh1,document.getElementById(<span class="string">'app'</span>));</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2019/11/06/react%E8%B5%B7%E5%A7%8B%E9%A1%B9%E7%9B%AE/">react起始项目</a>
+            
+        </section>
+        <div style="margin-top: 40px;padding: 20px 0 10px;border-top: 1px solid #eeeeee;">##发表评论##</div>
+        <div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'JieYangAdmin',
+  repo: 'JieYangAdmin.github.io',
+  oauth: {
+    client_id: 'f41a9fb23d972e1d0767',
+    client_secret: '8b2e926f03aeed34a0882985f705ab0471a836a2',
+  },
+})
+gitment.render('container')
+</script>
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Crazy-Y | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+    <div style="text-align: center; font-size: 14px;"><span id="timeDate" style="text-align: center; font-size: 14px;">载入天数...</span><span id="times" style="text-align: center; font-size: 14px;">载入时分秒...</span></div>
+</footer>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("10/30/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+        <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    </div>
+</body>
+</html>
