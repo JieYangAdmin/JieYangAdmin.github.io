@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Crazy-Y">
+
+
+
+
+
+<title>mongo | Crazy-Y</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Crazy-Y&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Crazy-Y&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">mongo</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Crazy-Y</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 13, 2020&nbsp;&nbsp;11:47:01</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/mongo/">mongo</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="MongodDB"><a href="#MongodDB" class="headerlink" title="MongodDB"></a>MongodDB</h2><ul>
+<li>MongoDB 是为了快速开发互联网Web应用而设计的数据库系统</li>
+<li>MongoDB 的设计目标是极简、灵活、作为web应用栈的一部门</li>
+<li>MongoDB 的数据模型是面向文档的，所谓文档是一种类似于JSON的结构<br>(MongoDB这个数据库中存的是各种各样的JSON)</li>
+</ul>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>数据库(database)<br>数据库是一个仓库，可以用来存放集合</li>
+<li>集合(collection)<br>集合类似于数组，在集合中可以存放文档</li>
+<li>文档(document)<br>文档数据库中最小单位，我们存储和操作的内容都是文档</li>
+</ul>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>MongoDB的版本偶数版本是稳定版，奇数版本是开发版</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.mongodb.com/download-center/community</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>配置全局环境变量<br>path -&gt;  C:\Program Files\MongoDB\Server\4.0\bin</p>
+</li>
+<li><p>创建文件夹</p>
+<ol>
+<li><p>在 C:/ 创建 “ data “ 文件夹</p>
+</li>
+<li><p>在 C:/data/ 创建 “ db “ 文件夹（存放数据库内容）</p>
+</li>
+<li><p>data文件夹自选位置: mongod –dbpath XXX(路径: D:\data\db)</p>
+</li>
+<li><p>mongod –dbpath XXX(路径) –port 端口号(修改端口号:最大不要超过65535)</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>  mongod 运行MongoDB服务器(最小化终端，不要关闭)<br>  mongo 连接MongoDB(新开一个终端) </p>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ol>
+<li>数据库的服务器<br> 服务器用来保存数据</li>
+<li>数据库的客户端<br> 客户端用来操作服务器，对数据进行增删改查的操作</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">        mongoDB</span><br><span class="line">           |</span><br><span class="line">        database</span><br><span class="line">        /     \</span><br><span class="line"> collection collection （集合）</span><br><span class="line">      /         \</span><br><span class="line">document      document  （文档）</span><br></pre></td></tr></table></figure>
+
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>show dbs : 显示当前所有数据库<br>use XXX : 进入XXX数据库，如果没有，自动创建并进入<br>db : 显示当前所处的数据库<br>show collections : 查看当前数据库的所有集合</p>
+<h3 id="数据库的CRUD-增删改查-的操作"><a href="#数据库的CRUD-增删改查-的操作" class="headerlink" title="数据库的CRUD(增删改查)的操作"></a>数据库的CRUD(增删改查)的操作</h3><ol>
+<li>插入<br>db.XXX.insert(xxx) : 向 XXX 集合中 插入 xxx 文档<br>ex: 向 test 数据库中的 stus 集合中插入一个对象{ name: “crazy-Y” , age: 25, sex: “男” }</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.stus.insert(&#123; name: <span class="string">"crazy-Y"</span> , age: 25, sex: <span class="string">"男"</span> &#125;)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>查询<br>db.XXX.find({}) : 查询当前集合当中的所有文档<br>db.stus.find({“XXX”:”xxx”}) : 根据对象条件查询<br>db.stus.find({}).count() : 查询stus集合内文档的数量<br>db.stus.find({“XXX” : { $gt : xxx }}) : 查询stus集合中XXX的值大于 xxx 的所有文档<br>db.stus.find({“XXX” : { $gte : xxx }}) : 查询stus集合中XXX的值大于等于 xxx 的所有文档<br>db.stus.find({“XXX” : { $lt : xxx }}) : 查询stus集合中XXX的值小于 xxx 的所有文档<br>db.stus.find({“XXX” : { $lte : xxx }}) : 查询stus集合中XXX的值小于等于 xxx 的所有文档<br>db.stus.find({“XXX” : { $gt : xxx1 , $lt : xxx2}}) : 查询stus集合中XXX的值大于 xxx1 小于 xxx2 的所有文档<br>db.stus.find({}).skip(xx).limit(XX); : 查询指定区间的文档, skip(): 跳过的条数 limit():显示的条数<br>ex: db.stus.find({}).skip((页数 - 1) * 每页显示条数).limit(每页显示条数)    分页功能</p>
+</li>
+<li><p>修改<br>update() : 默认只会修改查询到的第一个</p>
+</li>
+</ol>
+<ul>
+<li><p>db.XXX.update(查询条件,新对象) : update 默认 新对象 替换 旧对象<br>ex: db.stus.update({“name”:”crazy-J”},{“sex”:”男”}) </p>
+</li>
+<li><p>db.XXX.update(查询条件,{$set:{XXX: xxx}}) : 将查询到的文档的XXX属性值改为xxx<br>$set : 修改文档的指定属性,如果没有该属性则为添加<br>$unset : 删除文档的指定属性</p>
+</li>
+</ul>
+<p>ex: db.stus.update({“name”:”crazy-J”},{$set:{<br>    “sex” : “男”<br>}}) </p>
+<p>ex: db.stus.update({“name”:”crazy-J”},{$unset:{<br>    “sex” : “男”<br>}}) </p>
+<ul>
+<li>db.XXX.update(查询条件,{$set:{XXX: xxx}},{multi : true}) : 修改所有的符合查询条件的文档<br>ex: db.stus.update({“sex”:”男”},{$set:{<br>  “year” : “2020”<br>}},{“multi” : true}) </li>
+</ul>
+<ol start="4">
+<li>删除<br>db.XXX.remove({}) : 删除集合内所有的文档<br>db.XXX.remove({“XXX”:”xxx”}) : 删除符合条件的所有文档<br>db.XXX.remove({“XXX”:”xxx”}，true) : 删除所有符合条件的第一个文档</li>
+</ol>
+<ul>
+<li><p>清空集合<br>db.XXX.remove({}) : 性能差<br>db.XXX.drop()</p>
+</li>
+<li><p>删除数据库<br>db.dropDatabase()</p>
+</li>
+</ul>
+<h3 id="图形化工具"><a href="#图形化工具" class="headerlink" title="图形化工具"></a>图形化工具</h3><p><a href="https://robomongo.org/download" target="_blank" rel="noopener">Robo 3T</a></p>
+<h3 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h3><ol>
+<li><p>一对一<br>在mongoDB中 我们可以通过内嵌文档的形式体现出一对一的关系</p>
+</li>
+<li><p>一对多/多对一</p>
+</li>
+<li><p>多对多</p>
+</li>
+</ol>
+<h3 id="sort-和-投影"><a href="#sort-和-投影" class="headerlink" title="sort 和 投影"></a>sort 和 投影</h3><ol>
+<li><p>sort()<br>指定文档的排序规则，需要传递一个参数来指定排序规则。（1 是升序, -1 是降序）<br>ex: db.XXX.find({}).sort({“age”: 1 }) 按照年龄从小到大排序<br>ex: db.XXX.find({}).sort({“age”: -1}) 按照年龄从大到小排序<br>ex: db.XXX.find({}).sort({“age”: 1 , “num”: -1}) 先按照年龄从小到大排序，如果年龄一样，就按照num从大到小排序</p>
+</li>
+<li><p>投影<br>在查询时，可以在第二个参数的设置位置来设置查询结果的投影<br>ex: db.XXX.find({}, {“username”: 1, “age”: 1}) 只查看符合条件的所有文档的username( 1代表 显示 ，0 代表 不显示 )</p>
+</li>
+</ol>
+<h2 id="mongoose"><a href="#mongoose" class="headerlink" title="mongoose"></a>mongoose</h2><h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><ul>
+<li>可以为文档创建一个模式结构(Schema)</li>
+<li>可以对模型中的对象/文档进行验证</li>
+<li>数据可以通过类型转换为对象模型</li>
+<li>可以使用中间件来应用业务逻辑挂钩</li>
+<li>比Node原生的MongoDB驱动更容易</li>
+</ul>
+<h3 id="新对象"><a href="#新对象" class="headerlink" title="新对象"></a>新对象</h3><ul>
+<li><p>Schema(模式对象)<br>Schema对象定义约束了数据库中的文档结构</p>
+</li>
+<li><p>Model<br>Model对象作为集合中的所有文档的表示，相当于MongoDB数据库中的集合collection</p>
+</li>
+<li><p>Document<br>Document表示集合当中过得具体文档，相当于集合中的一个具体的文档</p>
+</li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mongoose --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const mongoose = require(<span class="string">"mongoose"</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>mongoose/mongoose.js</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mongoose.connect(<span class="string">'mongodb:// 数据库的ip地址：端口号/数据库名'</span>)</span><br><span class="line"><span class="comment">## - 如果端口号是默认的(27017),可以省略不写</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 监听Mongoose数据库的链接状态</span></span><br><span class="line"><span class="comment">## 在mongoose对象中，属性connection表示数据库链接，可以通过监视该对象的状态，可以来监听数据库的链接与断开</span></span><br><span class="line">const mongoose = require(<span class="string">"mongoose"</span>);</span><br><span class="line">const DB_URL = <span class="string">'mongodb://localhost:27017/project'</span>;</span><br><span class="line">mongoose.connect(DB_URL, &#123; useNewUrlParser: <span class="literal">true</span>, useUnifiedTopology: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> db = mongoose.connection;</span><br><span class="line">db.on(<span class="string">'connected'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    console.log(<span class="string">'Mongoose connection open to '</span> + DB_URL);</span><br><span class="line">&#125;); <span class="comment">## 连接成功 </span></span><br><span class="line"></span><br><span class="line">db.on(<span class="string">'error'</span>, <span class="keyword">function</span> (err) &#123;</span><br><span class="line">    console.log(<span class="string">'Mongoose connection error: '</span> + err);</span><br><span class="line">&#125;); <span class="comment">## 连接异常</span></span><br><span class="line"></span><br><span class="line">db.on(<span class="string">'disconnected'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    console.log(<span class="string">'Mongoose connection disconnected'</span>);</span><br><span class="line">&#125;); <span class="comment">## 连接断开 </span></span><br><span class="line"></span><br><span class="line">mongoose.disconnect(); <span class="comment">## 断开连接</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2019/12/20/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4react%E5%8C%85/">从0开始搭建完整react包</a>
+            
+        </section>
+        <div style="margin-top: 40px;padding: 20px 0 10px;border-top: 1px solid #eeeeee;">##发表评论##</div>
+        <div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'JieYangAdmin',
+  repo: 'JieYangAdmin.github.io',
+  oauth: {
+    client_id: 'f41a9fb23d972e1d0767',
+    client_secret: '8b2e926f03aeed34a0882985f705ab0471a836a2',
+  },
+})
+gitment.render('container')
+</script>
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Crazy-Y | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+    <div style="text-align: center; font-size: 14px;"><span id="timeDate" style="text-align: center; font-size: 14px;">载入天数...</span><span id="times" style="text-align: center; font-size: 14px;">载入时分秒...</span></div>
+</footer>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("10/30/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+        <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    </div>
+</body>
+</html>
