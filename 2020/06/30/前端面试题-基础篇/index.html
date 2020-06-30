@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Crazy-Y">
+
+
+
+
+
+<title>前端面试题-基础篇 | Crazy-Y</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Crazy-Y&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Crazy-Y&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">前端面试题-基础篇</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Crazy-Y</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 30, 2020&nbsp;&nbsp;14:23:47</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">前端面试总结</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>基础篇</p>
+<blockquote>
+<p><strong>盒模型</strong></p>
+</blockquote>
+<p>（1）盒模型有标准盒模型和IE的盒模型；(content,margin,padding,content)</p>
+<p>（2）标准盒模型的内容大小就是content的大小，而IE的则是content + padding +border 总的大小。</p>
+<p>（3）box-sizing:content-box(W3C)/border-box(IE)达到两种盒模型的效果。</p>
+<blockquote>
+<p>CSS水平、垂直居中</p>
+</blockquote>
+<ul>
+<li>定位 + 平移</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 父相子绝</span></span><br><span class="line"><span class="comment"># 子元素 左/右 上/下 定位父元素的50%</span></span><br><span class="line"><span class="comment"># 子元素外间距 左/右 上/下 平移自身50%</span></span><br><span class="line">.parent &#123;</span><br><span class="line">	position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.children &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 50%;</span><br><span class="line">    top: 50%;</span><br><span class="line">    transform: translate(-50%, -50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>flex布局</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 父元素 设置 flex，竖轴横轴分别设置子元素居中排列</span></span><br><span class="line">display: flex;</span><br><span class="line">justify-content: center;</span><br><span class="line">align-items: center;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>转换属性为表格单元格</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 父元素 设置 table-cell 子元素设置 行内块</span></span><br><span class="line"><span class="comment"># 父元素 行居中 垂直居中</span></span><br><span class="line">.parent &#123;</span><br><span class="line">    display: table-cell;</span><br><span class="line">    text-align: center;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">&#125;</span><br><span class="line">.children &#123;</span><br><span class="line">	display: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>定位+margin</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 子元素 绝对定位 自动margin</span></span><br><span class="line"><span class="comment"># 父元素 相对定位</span></span><br><span class="line">.parent&#123;</span><br><span class="line">	position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.children &#123;</span><br><span class="line">	position: absolute;</span><br><span class="line">	left: 0;</span><br><span class="line">	right: 0;</span><br><span class="line">	top: 0;</span><br><span class="line">	bottom: 0;</span><br><span class="line">	margin: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>rem,em,vh,px区别</strong></p>
+</blockquote>
+<ul>
+<li>px就是pixel（像素）的缩写，相对长度单位，相对于屏幕分辨率</li>
+<li>em参考物是父元素的font-size,浏览器默认字体是16px</li>
+<li>vh,vw 基于视窗大小</li>
+<li>rem 是相对于根元素（html）的字体大小</li>
+</ul>
+<blockquote>
+<p><strong>calc,support,media 含义、用法</strong></p>
+</blockquote>
+<ul>
+<li>@support：用于检测浏览器是否支持CSS某个属性，即条件判断，如果支持某个属性，可以写一套样式，如果不支持某属性，提供另一套样式作为替补</li>
+<li>@media：针对不同的媒体类型定义不同的样式</li>
+<li>calc()：用于计算动态函数值</li>
+</ul>
+<blockquote>
+<p><strong>valueOf()</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Array：返回数组对象本身</span><br><span class="line">Date：当前时间距1970年1月1日午夜的毫秒数</span><br><span class="line">Number：返回数字值</span><br><span class="line">布尔：返回布尔值<span class="literal">true</span>或<span class="literal">false</span></span><br><span class="line">Function：返回函数本身</span><br><span class="line">Object：返回对象本身</span><br><span class="line">String：返回字符串值</span><br><span class="line">new: 一个字符串对象</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>节流、防抖？如何实现</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 防抖动是将多次执行变为最后一次执行.</span></span><br><span class="line"><span class="keyword">function</span> debounce(fn) &#123;</span><br><span class="line">	<span class="built_in">let</span> timeout = null; <span class="comment"># 创建一个标记用来存放定时器的返回值</span></span><br><span class="line">	<span class="built_in">return</span> <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">		clearTimeout(timeout); <span class="comment"># 每当用户输入的时候把前一个 setTimeout clear 掉</span></span><br><span class="line">        timeout = setTimeout(() =&gt; &#123; <span class="comment"># 创建一个新的 setTimeout</span></span><br><span class="line">			aa();</span><br><span class="line">		&#125;, 500);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">aa</span></span>() &#123;</span><br><span class="line">	console.log(<span class="string">"防抖"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 节流是将多次执行变成每隔一段时间执行.</span></span><br><span class="line"><span class="keyword">function</span> debounce(fn) &#123;</span><br><span class="line">	<span class="built_in">let</span> canRun = <span class="literal">true</span>; <span class="comment"># 通过闭包保存一个标记</span></span><br><span class="line">	<span class="built_in">return</span> <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">		<span class="keyword">if</span> (!canRun) <span class="built_in">return</span>; <span class="comment"># 判断标记是否为 true，不为 true 则 return</span></span><br><span class="line">		canRun = <span class="literal">false</span>; <span class="comment"># 改变标记状态</span></span><br><span class="line">        timeout = setTimeout(() =&gt; &#123; </span><br><span class="line">			aa();</span><br><span class="line">			canRun = <span class="literal">true</span>; <span class="comment"># 改变标记状态</span></span><br><span class="line">		&#125;, 500);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">aa</span></span>() &#123;</span><br><span class="line">	console.log(<span class="string">"节流"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>cookies,sessionStorage,localStorage</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">存储大小</th>
+<th align="center">生命周期</th>
+<th align="center">存储形式</th>
+<th align="center">安全性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">cookie</td>
+<td align="center">数据大小不能超过4k</td>
+<td align="center">需要设置有效期，过期后销毁</td>
+<td align="center">字符串</td>
+<td align="center">请求时一般会携带在header中</td>
+</tr>
+<tr>
+<td align="center">localStorage</td>
+<td align="center">数据大小支持5M左右，不同浏览器存储大小不同</td>
+<td align="center">除非被手动清理，否则永久存在</td>
+<td align="center">字符串</td>
+<td align="center">请求时不会携带</td>
+</tr>
+<tr>
+<td align="center">sessionStorage</td>
+<td align="center">数据大小支持5M左右，不同浏览器存储大小不同</td>
+<td align="center">页面关闭后就会被销毁</td>
+<td align="center">字符串</td>
+<td align="center">请求时不会携带</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>获取当前/指定日期的年月日时分秒毫秒周</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var myDate = new Date(<span class="string">"2020-05-30 10:11:12:13"</span>);</span><br><span class="line">var myYear = myDate.getFullYear(); <span class="comment"># 获取当前年份</span></span><br><span class="line">var myMonth = myDate.getMonth() + 1; <span class="comment"># 获取当前月份</span></span><br><span class="line">var myDay = myDate.getDate() <span class="comment"># 获取当前日（1- 31）</span></span><br><span class="line">var myHours = myDate.getHours() <span class="comment"># 获取当前小时(0-23)</span></span><br><span class="line">var myMinu = myDate.getMinutes() <span class="comment"># 获取当前分钟(0-59)</span></span><br><span class="line">var mySec = myDate.getSeconds() <span class="comment"># 获取当前秒数(0-59)</span></span><br><span class="line">var dateMilliseconds = myDate.getMilliseconds(); <span class="comment"># 获取毫秒</span></span><br><span class="line">console.log( myDate.valueOf() ); <span class="comment"># Date：当前时间距1970年1月1日午夜的毫秒数</span></span><br><span class="line">var myWeek = myDate.getDay() <span class="comment"># 获取当前星期几(0-6,0代表星期天)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 该月第几周</span></span><br><span class="line">const getMonthWeek = (year, month, date) =&gt; &#123; </span><br><span class="line">    <span class="comment"># month = 6 - w = 当前周的还有几天过完(不算今天)  </span></span><br><span class="line">    <span class="comment"># year + month 的和在除以7 就是当天是当前月份的第几周  </span></span><br><span class="line">    <span class="built_in">let</span> dateNow = new Date(year, parseInt(month) - 1, date);</span><br><span class="line">    <span class="built_in">let</span> w = dateNow.getDay(); <span class="comment"># 星期数</span></span><br><span class="line">    <span class="built_in">let</span> d = dateNow.getDate();</span><br><span class="line">    <span class="built_in">return</span> Math.ceil((d + 6 - w) / 7);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 该年第几周</span></span><br><span class="line">const getYearWeek = (year, month, date) =&gt; &#123;  </span><br><span class="line">    <span class="comment"># dateNow是当前日期 </span></span><br><span class="line">    <span class="comment"># dateFirst是当年第一天  </span></span><br><span class="line">    <span class="comment"># dataNumber是当前日期是今年第多少天  </span></span><br><span class="line">    <span class="comment"># 用dataNumber + 当前年的第一天的周差距的和在除以7就是本年第几周  </span></span><br><span class="line">    <span class="built_in">let</span> dateNow = new Date(year, parseInt(month) - 1, date);</span><br><span class="line">    <span class="built_in">let</span> dateFirst = new Date(year, 0, 1);</span><br><span class="line">    <span class="built_in">let</span> dataNumber = Math.round((dateNow.valueOf() - dateFirst.valueOf()) / 86400000);</span><br><span class="line">    <span class="built_in">return</span> Math.ceil((dataNumber + ((dateFirst.getDay() + 1) - 1)) / 7);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>数组去重</strong></p>
+</blockquote>
+<ul>
+<li>ES6  Set</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> unique(arr)&#123;</span><br><span class="line">	<span class="built_in">return</span> Array.from(new Set(arr));</span><br><span class="line">&#125;</span><br><span class="line">var arr = [<span class="string">'a'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'b'</span>, <span class="string">'b'</span>, undefined, undefined, null, null, [],[], &#123;&#125;, &#123;&#125;];</span><br><span class="line">console.log(unique(arr))</span><br><span class="line">console.log([...new Set(arr)]) <span class="comment"># 简化代码</span></span><br><span class="line"><span class="comment"># ['a','b',undefined,null,[],[],&#123;&#125;,&#123;&#125;]</span></span><br><span class="line"><span class="comment"># 优点：不考虑兼容性，这种去重的方法代码最少; </span></span><br><span class="line"><span class="comment"># 缺点：无法去掉重复"&#123;&#125;","[]"</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ES5 双重for循环,splice去重</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> unique(arr)&#123;            </span><br><span class="line">	<span class="keyword">for</span>(var i=0; i&lt;arr.length; i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(var j=i+1; j&lt;arr.length; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[i]==arr[j])&#123; </span><br><span class="line">				arr.splice(j,1);</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1,1,<span class="string">'true'</span>,<span class="string">'true'</span>,<span class="literal">true</span>,<span class="literal">true</span>,15,15,<span class="literal">false</span>,<span class="literal">false</span>, undefined,undefined, null,null, NaN, NaN,<span class="string">'NaN'</span>, 0, 0, <span class="string">'a'</span>, <span class="string">'a'</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">console.log(unique(arr))</span><br><span class="line"><span class="comment"># [1, "true", 15, false, undefined, NaN, NaN, "NaN", "a", &#123;…&#125;, &#123;…&#125;]     </span></span><br><span class="line"><span class="comment"># NaN和&#123;&#125;没有去重，两个null直接消失了</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>indexOf去重</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> unique(arr) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!Array.isArray(arr)) &#123;</span><br><span class="line">        console.log(<span class="string">'type error!'</span>)</span><br><span class="line">        <span class="built_in">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    var array = [];</span><br><span class="line">    <span class="keyword">for</span> (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (array.indexOf(arr[i]) === -1) &#123;</span><br><span class="line">            array.push(arr[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1,1,<span class="string">'true'</span>,<span class="string">'true'</span>,<span class="literal">true</span>,<span class="literal">true</span>,15,15,<span class="literal">false</span>,<span class="literal">false</span>, undefined,undefined, null,null, NaN, NaN,<span class="string">'NaN'</span>, 0, 0, <span class="string">'a'</span>, <span class="string">'a'</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">console.log(unique(arr))</span><br><span class="line"><span class="comment"># [1, "true", true, 15, false, undefined, null, NaN, NaN, "NaN", 0, "a", &#123;…&#125;, &#123;…&#125;]</span></span><br><span class="line"><span class="comment"># NaN、&#123;&#125;没有去重</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sort()</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> unique(arr) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!Array.isArray(arr)) &#123;</span><br><span class="line">        console.log(<span class="string">'type error!'</span>)</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    arr = arr.sort()</span><br><span class="line">    var arrry= [];</span><br><span class="line">    <span class="keyword">for</span> (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] !== arr[i-1]) &#123;</span><br><span class="line">            arrry.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> arrry;</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1,1,<span class="string">'true'</span>,<span class="string">'true'</span>,<span class="literal">true</span>,<span class="literal">true</span>,15,15,<span class="literal">false</span>,<span class="literal">false</span>, undefined,undefined, null,null, NaN, NaN,<span class="string">'NaN'</span>, 0, 0, <span class="string">'a'</span>, <span class="string">'a'</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">console.log(unique(arr))</span><br><span class="line"><span class="comment"># [0, 1, 15, "NaN", NaN, NaN, &#123;…&#125;, &#123;…&#125;, "a", false, null, true, "true", undefined]</span></span><br><span class="line"><span class="comment"># NaN、&#123;&#125;没有去重</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>includes()</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> unique(arr) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!Array.isArray(arr)) &#123;</span><br><span class="line">        console.log(<span class="string">'type error!'</span>)</span><br><span class="line">        <span class="built_in">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    var array =[];</span><br><span class="line">    <span class="keyword">for</span>(var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">    	<span class="keyword">if</span>( !array.includes( arr[i]) ) &#123; <span class="comment"># includes 检测数组是否有某个值</span></span><br><span class="line">        	array.push(arr[i]);</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> array</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1,1,<span class="string">'true'</span>,<span class="string">'true'</span>,<span class="literal">true</span>,<span class="literal">true</span>,15,15,<span class="literal">false</span>,<span class="literal">false</span>, undefined,undefined, null,null, NaN, NaN,<span class="string">'NaN'</span>, 0, 0, <span class="string">'a'</span>, <span class="string">'a'</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">console.log(unique(arr))</span><br><span class="line"><span class="comment"># [1, "true", true, 15, false, undefined, null, NaN, "NaN", 0, "a", &#123;…&#125;, &#123;…&#125;]</span></span><br><span class="line"><span class="comment"># &#123;&#125;没有去重</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>递归去重</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> unique(arr) &#123;</span><br><span class="line">	var array= arr;</span><br><span class="line">	var len = array.length;</span><br><span class="line"></span><br><span class="line">	array.sort(<span class="keyword">function</span>(a,b)&#123;   //排序后更加方便去重</span><br><span class="line">		<span class="built_in">return</span> a - b;</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">function</span> loop(index)&#123;</span><br><span class="line">        <span class="keyword">if</span>(index &gt;= 1)&#123;</span><br><span class="line">            <span class="keyword">if</span>(array[index] === array[index-1])&#123;</span><br><span class="line">                array.splice(index,1);</span><br><span class="line">            &#125;</span><br><span class="line">            loop(index - 1);    //递归loop，然后数组去重</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	loop(len-1);</span><br><span class="line">	<span class="built_in">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1,1,<span class="string">'true'</span>,<span class="string">'true'</span>,<span class="literal">true</span>,<span class="literal">true</span>,15,15,<span class="literal">false</span>,<span class="literal">false</span>, undefined,undefined, null,null, NaN, NaN,<span class="string">'NaN'</span>, 0, 0, <span class="string">'a'</span>, <span class="string">'a'</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line">console.log(unique(arr))</span><br><span class="line"><span class="comment"># [1, "a", "true", true, 15, false, 1, &#123;…&#125;, null, NaN, NaN, "NaN", 0, "a", &#123;…&#125;, undefined]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Map数据结构去重</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> arrayNonRepeatfy(arr) &#123;</span><br><span class="line">  <span class="built_in">let</span> map = new Map();</span><br><span class="line">  <span class="built_in">let</span> array = new Array();  <span class="comment"># 数组用于返回结果</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(map.has(arr[i])) &#123;  <span class="comment"># 如果有该key值</span></span><br><span class="line">      map.set(arr[i], <span class="literal">true</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">      map.set(arr[i], <span class="literal">false</span>);   <span class="comment"># 如果没有该key值</span></span><br><span class="line">      array.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="built_in">return</span> array ;</span><br><span class="line">&#125;</span><br><span class="line"> var arr = [1,1,<span class="string">'true'</span>,<span class="string">'true'</span>,<span class="literal">true</span>,<span class="literal">true</span>,15,15,<span class="literal">false</span>,<span class="literal">false</span>, undefined,undefined, null,null, NaN, NaN,<span class="string">'NaN'</span>, 0, 0, <span class="string">'a'</span>, <span class="string">'a'</span>,&#123;&#125;,&#123;&#125;];</span><br><span class="line"> console.log(unique(arr))</span><br><span class="line"> <span class="comment"># [1, "a", "true", true, 15, false, 1, &#123;…&#125;, null, NaN, NaN, "NaN", 0, "a", &#123;…&#125;, undefined]</span></span><br><span class="line"> <span class="comment"># 创建一个空Map数据结构，遍历需要去重的数组，把数组的每一个元素作为key存到Map中。由于Map中不会出现相同的key值，所以最终得到的就是去重后的结果</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>数组的方法</strong></p>
+</blockquote>
+<ul>
+<li><p>join() : 数组转字符串</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">console.log(arr.join()); 　　　　<span class="comment"># 1,2,3</span></span><br><span class="line">console.log(arr.join(<span class="string">"-"</span>)); 　　<span class="comment"># 1-2-3</span></span><br><span class="line">console.log(arr); 　　　　　　　　<span class="comment"># [1, 2, 3]（原数组不变）</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>push()：添加数据到数组末尾，并返回数组长度</p>
+</li>
+<li><p>pop(): 移除数组最后一项，返回移除的那个值</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="string">"Lily"</span>,<span class="string">"lucy"</span>,<span class="string">"Tom"</span>];</span><br><span class="line">var count = arr.push(<span class="string">"Jack"</span>,<span class="string">"Sean"</span>);</span><br><span class="line">console.log(count); 　　　　　　　　　　<span class="comment"># 5</span></span><br><span class="line">console.log(arr); 　　　　　　　　　　　<span class="comment"># ["Lily", "lucy", "Tom", "Jack", "Sean"]</span></span><br><span class="line">var item = arr.pop();</span><br><span class="line">console.log(item); 　　　　　　　　　　 <span class="comment"># Sean</span></span><br><span class="line">console.log(arr); 　　　　　　　　　　  <span class="comment"># ["Lily", "lucy", "Tom", "Jack"]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>shift() : 删除原数组第一项，并返回删除元素的值；如果数组为空则返回undefined</li>
+<li>unshift() : 将参数添加到原数组开头，并返回数组的长度</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="string">"Lily"</span>,<span class="string">"lucy"</span>,<span class="string">"Tom"</span>];</span><br><span class="line">var count = arr.unshift(<span class="string">"Jack"</span>,<span class="string">"Sean"</span>);</span><br><span class="line">console.log(count); 　　　　　　　　　　　　　　<span class="comment"># 5</span></span><br><span class="line">console.log(arr); 　　　　　　　　　　　　　　　<span class="comment"># ["Jack", "Sean", "Lily", "lucy", "Tom"]</span></span><br><span class="line">var item = arr.shift();</span><br><span class="line">console.log(item); 　　　　　　　　　　　　　　<span class="comment"># Jack</span></span><br><span class="line">console.log(arr); 　　　　　　　　　　　　　　 <span class="comment"># ["Sean", "Lily", "lucy", "Tom"]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sort() : 将数组里的项从小到大排序</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [<span class="string">"a"</span>, <span class="string">"d"</span>, <span class="string">"c"</span>, <span class="string">"b"</span>];</span><br><span class="line">console.log(arr1.sort()); 　　　　　　　　　　<span class="comment"># ["a", "b", "c", "d"]</span></span><br><span class="line"><span class="comment"># sort()方法比较的是字符串，没有按照数值的大小对数字进行排序，要实现这一点，就必须使用一个排序函数</span></span><br><span class="line"><span class="keyword">function</span> sortNumber(a,b)</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="built_in">return</span> a - b</span><br><span class="line">&#125;</span><br><span class="line">arr = [13, 24, 51, 3]; console.log(arr.sort()); 　　<span class="comment"># [13, 24, 3, 51] </span></span><br><span class="line">console.log(arr.sort(sortNumber)); 　　　　<span class="comment"># [3, 13, 24, 51](数组被改变)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>reverse() : 反转数组项的顺序</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [13, 24, 51, 3];</span><br><span class="line">console.log(arr.reverse()); 　　　　　　　　<span class="comment"># [3, 51, 24, 13]</span></span><br><span class="line">console.log(arr); 　　　　　　　　　　　　　　<span class="comment"># [3, 51, 24, 13](原数组改变)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>concat() : 将参数添加到原数组中</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,3,5,7];</span><br><span class="line">var arrCopy = arr.concat(9,[11,13]);</span><br><span class="line">console.log(arrCopy); 　　　　　　　　　　　<span class="comment"># [1, 3, 5, 7, 9, 11, 13]</span></span><br><span class="line">console.log(arr); 　　　　　　　　　　　　　 <span class="comment"># [1, 3, 5, 7](原数组未被修改)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>slice() : 回从原数组中指定开始下标到结束下标之间的项组成的新数组;slice()方法可以接受一或两个参数，即要返回项的起始和结束位置。在只有一个参数的情况下， slice()方法返回从该参数指定位置开始到当前数组末尾的所有项。如果有两个参数，该方法返回起始和结束位置之间的项——但不包括结束位置的项。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,3,5,7,9,11];</span><br><span class="line">var arrCopy = arr.slice(1);</span><br><span class="line">var arrCopy2 = arr.slice(1,4);</span><br><span class="line">var arrCopy3 = arr.slice(1,-2);</span><br><span class="line">var arrCopy4 = arr.slice(-4,-1);</span><br><span class="line">console.log(arr); 　　　　　　　　　　　　　　<span class="comment"># [1, 3, 5, 7, 9, 11](原数组没变)</span></span><br><span class="line">console.log(arrCopy); 　　　　　　　　　　　 <span class="comment"># [3, 5, 7, 9, 11]</span></span><br><span class="line">console.log(arrCopy2); 　　　　　　　　　　　<span class="comment"># [3, 5, 7]</span></span><br><span class="line">console.log(arrCopy3); 　　　　　　　　　　　<span class="comment"># [3, 5, 7]</span></span><br><span class="line">console.log(arrCopy4); 　　　　　　　　　　　<span class="comment"># [5, 7, 9]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>splice() </li>
+</ul>
+<p>– 删除：指定 2 个参数：要删除的第一项的位置和要删除的项数。</p>
+<p>– 插入：可以向指定位置插入任意数量的项，只需提供 3 个参数：起始位置、 0（要删除的项数）和要插入的项。</p>
+<p>– 替换：可以向指定位置插入任意数量的项，且同时删除任意数量的项，只需指定 3 个参数：起始位置、要删除的项数和要插入的任意    数量的项。插入的项数不必与删除的项数相等。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,3,5,7,9,11];</span><br><span class="line">var arrRemoved = arr.splice(0,2);</span><br><span class="line">console.log(arr); 　　　　　　　　　　　　　　　<span class="comment"># [5, 7, 9, 11]</span></span><br><span class="line">console.log(arrRemoved); 　　　　　　　　　　　<span class="comment"># [1, 3]</span></span><br><span class="line">var arrRemoved2 = arr.splice(2,0,4,6);</span><br><span class="line">console.log(arr); 　　　　　　　　　　　　　　　<span class="comment"># [5, 7, 4, 6, 9, 11]</span></span><br><span class="line">console.log(arrRemoved2); 　　　　　　　　　　<span class="comment"># []</span></span><br><span class="line">var arrRemoved3 = arr.splice(1,1,2,4);</span><br><span class="line">console.log(arr); 　　　　　　　　　　　　　　　<span class="comment"># [5, 2, 4, 4, 6, 9, 11]</span></span><br><span class="line">console.log(arrRemoved3); 　　　　　　　　　　<span class="comment"># [7]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>indexOf() : 接收两个参数：要查找的项和（可选的）表示查找起点位置的索引。其中， 从数组的开头（位置 0）开始向后查找。</p>
+</li>
+<li><p>lastIndexOf() : 接收两个参数：要查找的项和（可选的）表示查找起点位置的索引。其中， 从数组的末尾开始向前查找。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,3,5,7,7,5,3,1];</span><br><span class="line">console.log(arr.indexOf(5)); 　　　　　　<span class="comment"># 2</span></span><br><span class="line">console.log(arr.lastIndexOf(5)); 　　　 <span class="comment"># 5</span></span><br><span class="line">console.log(arr.indexOf(5,2)); 　　　　 <span class="comment"># 2</span></span><br><span class="line">console.log(arr.lastIndexOf(5,4)); 　　<span class="comment"># 2</span></span><br><span class="line">console.log(arr.indexOf(<span class="string">"5"</span>)); 　　　　 <span class="comment"># -1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>forEach() : 对数组进行遍历循环，对数组中的每一项运行给定函数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5];</span><br><span class="line">arr.forEach(<span class="keyword">function</span>(x, index, a)&#123;</span><br><span class="line">console.log(x + <span class="string">'|'</span> + index + <span class="string">'|'</span> + (a === arr));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment"># 1|0|true</span></span><br><span class="line"><span class="comment"># 2|1|true</span></span><br><span class="line"><span class="comment"># 3|2|true</span></span><br><span class="line"><span class="comment"># 4|3|true</span></span><br><span class="line"><span class="comment"># 5|4|true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>map() :  指“映射”，对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5];</span><br><span class="line">var arr2 = arr.map(<span class="keyword">function</span>(item)&#123;</span><br><span class="line">	<span class="built_in">return</span> item*item;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(arr2); 　　　　　　　　<span class="comment"># [1, 4, 9, 16, 25]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>filter() : “过滤”功能，数组中的每一项运行给定函数，返回满足过滤条件组成的数组。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">var arr2 = arr.filter(<span class="keyword">function</span>(x, index) &#123;</span><br><span class="line">	<span class="built_in">return</span> index % 3 === 0 || x &gt;= 8;</span><br><span class="line">&#125;); </span><br><span class="line">console.log(arr2); 　　　　　　　　<span class="comment"># [1, 4, 7, 8, 9, 10]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>every() : 判断数组中每一项都是否满足条件，只有所有项都满足条件，才会返回true。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5];</span><br><span class="line">var arr2 = arr.every(<span class="keyword">function</span>(x) &#123;</span><br><span class="line">	<span class="built_in">return</span> x &lt; 10;</span><br><span class="line">&#125;); </span><br><span class="line">console.log(arr2); 　　　　　　　　<span class="comment"># true</span></span><br><span class="line">var arr3 = arr.every(<span class="keyword">function</span>(x) &#123;</span><br><span class="line">	<span class="built_in">return</span> x &lt; 3;</span><br><span class="line">&#125;); </span><br><span class="line">console.log(arr3); 　　　　　　　　<span class="comment"># false</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>some() : 判断数组中是否存在满足条件的项，只要有一项满足条件，就会返回true。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5];</span><br><span class="line">var arr2 = arr.some(<span class="keyword">function</span>(x) &#123;</span><br><span class="line"><span class="built_in">return</span> x &lt; 3;</span><br><span class="line">&#125;); </span><br><span class="line">console.log(arr2); 　　　　　　　　<span class="comment"># true</span></span><br><span class="line">var arr3 = arr.some(<span class="keyword">function</span>(x) &#123;</span><br><span class="line"><span class="built_in">return</span> x &lt; 1;</span><br><span class="line">&#125;); </span><br><span class="line">console.log(arr3); 　　　　　　　　<span class="comment"># false</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>reduce() :  接收一个函数作为累加器, 数组中每个值(从左到右)开始缩减, 最终为一个值. <code>reduce()</code>接收的那个函数就是回调函数, 回调函数调用数组里的每一个元素, 直到循环结束. 它有4个参数, 按顺序分别是 上一次的值, 当前的值, 当前值的索引, 数组</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> array = [1, 2, 3, 4, 5];</span><br><span class="line"><span class="built_in">let</span> total = array.reduce((a, b, c, d) =&gt; &#123;</span><br><span class="line">	console.log(a,b,c,d)</span><br><span class="line">    <span class="built_in">return</span> a + b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment"># 1 2 1  [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="comment"># 3 3 2  [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="comment"># 6 4 3  [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="comment"># 10 5 4  [1, 2, 3, 4, 5]</span></span><br><span class="line">console.log(total);     <span class="comment"># 15</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>字符串方法</strong></p>
+</blockquote>
+<ul>
+<li>substring() : (start开始位置的索引,end结束位置索引) 截取后不改变原来字符串，返回一个新的字符串</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var str = <span class="string">"apple"</span></span><br><span class="line">var new_str = str.substring(1) <span class="comment">#表示从索引1开始到字符串结束</span></span><br><span class="line">console.log(new_str) <span class="comment">#pple</span></span><br><span class="line"></span><br><span class="line">var str1 = <span class="string">"appleapple"</span></span><br><span class="line">var newstr = str.substring(1,4) <span class="comment"># 表示从索引1开始到字符串结束(不包含结束索引值)</span></span><br><span class="line">console.log(newstr) <span class="comment"># ppl</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>substr() : (start开始位置索引,end需要返回的字符个数) 截取后不改变原来字符串，返回一个新的字符串</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str=<span class="string">'abcdefg'</span>;</span><br><span class="line">str.substr(1) <span class="comment"># bcdefg   </span></span><br><span class="line">str.substr(1,1) <span class="comment"># b</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>charAt(index) : 返回指定索引位置处的字符。如果超出有效范围的索引值返回空字符串.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = <span class="string">"fuck"</span></span><br><span class="line">console.log(str.charAt(3)) <span class="comment"># k</span></span><br><span class="line">console.log(str.charAt(9) <span class="comment"># "" 空字符串</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>indexOf(): 返回String对象内第一次出现子字符串位置。如果没有找到子字符串，则返回-1。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var str = <span class="string">"how many people?"</span>   </span><br><span class="line">console.log(str.indexOf(<span class="string">"m"</span>)) <span class="comment"># 4</span></span><br><span class="line">console.log(str.indexOf(<span class="string">"wo"</span>)) <span class="comment"># -1</span></span><br><span class="line">console.log(str.indexOf(<span class="string">" "</span>)) <span class="comment"># 3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>lastIndexOf(): 返回String对象内最后一次出现子字符串位置。如果没有找到子字符串，则返回-1。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = <span class="string">"abcdefghigha"</span></span><br><span class="line">console.log(str.lastIndexOf(<span class="string">"a"</span>)) <span class="comment"># 11</span></span><br><span class="line">console.log(str.lastIndexOf(<span class="string">"b"</span>)) <span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>split(arg1，arg2) : 把一个字符串分割成字符串数组。第一个参数为字符串或正则表达式，第二个参数为数组最大长度，不填表示不限长度</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var str=<span class="string">"How are you doing today?"</span></span><br><span class="line">document.write(str.split(<span class="string">" "</span>))</span><br><span class="line">document.write(str.split(<span class="string">""</span>) )</span><br><span class="line">document.write(str.split(<span class="string">" "</span>,3))</span><br><span class="line"><span class="comment"># How,are,you,doing,today?</span></span><br><span class="line"><span class="comment"># H,o,w, ,a,r,e, ,y,o,u, ,d,o,i,n,g, ,t,o,d,a,y,?</span></span><br><span class="line"><span class="comment"># How,are,you</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>toLowerCase() : 返回一个字符串，该字符串中的字母被转换成小写</p>
+</li>
+<li><p>toUpperCase() : 返回一个字符串，该字符串中的所有字母都被转换为大写字 </p>
+</li>
+<li><p>trim() : 移除首尾空格</p>
+</li>
+<li><p>concat() ： 连接两个或多个字符串，返回连接后的字符串</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>闭包？为何使用闭包？创建闭包？ 作用？</strong></p>
+</blockquote>
+<p>闭包是一个函数，能将创建的变量的值始终保持在内存中，以供本地环境使用；</p>
+<p>在javascript中，变量作用域无非就两种：局部作用域和全局作用域；</p>
+<p>在javascript中，函数内部可以直接访问外部变量，而函数外部不可以访问函数内部变量。这也是javascript语言特有的“链式作用域”结构。</p>
+<p>当函数外部需要访问函数内部变量，就需要使用闭包；闭包的主要作用就是间接访问函数内部数据.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">showNum</span></span>() &#123;</span><br><span class="line">	var num = 12;  </span><br><span class="line">&#125;</span><br><span class="line">console.log(num); <span class="comment"># Uncaught ReferenceError: num is not defined</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">showNum</span></span>() &#123;</span><br><span class="line">    var num = 12;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">showNum2</span></span>() &#123;</span><br><span class="line">         console.log(num);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">return</span> showNum2;</span><br><span class="line">&#125;</span><br><span class="line">var myNum = showNum();</span><br><span class="line">myNum(); <span class="comment"># 12</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>作用: </li>
+</ul>
+<p>– 读取函数内部变量</p>
+<p>– 将创建的变量始终保存在内存中，以供本地环境使用</p>
+<ul>
+<li>缺点： 比普通函数占据更多的内存（在不使用闭包时，及时释放）</li>
+</ul>
+<blockquote>
+<p><strong>数组排序</strong></p>
+</blockquote>
+<ul>
+<li>快速/递归</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const quickSort = (arr) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt;= 1) &#123; <span class="comment"># 如果数组长度小于等于1无需判断直接返回即可</span></span><br><span class="line">    	<span class="built_in">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    const pivotIndex = Math.floor(arr.length / 2); <span class="comment"># 取基准点</span></span><br><span class="line">    const pivot = arr.splice(pivotIndex, 1)[0]; <span class="comment"># 取基准点的值,splice(index,1)函数可以返回数组中被删除的那个数</span></span><br><span class="line">    <span class="built_in">let</span> left = []; <span class="comment"># 存放比基准点小的数组</span></span><br><span class="line">    <span class="built_in">let</span> right = []; <span class="comment"># 存放比基准点大的数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; arr.length; i++) &#123; <span class="comment"># 遍历数组，进行判断分配</span></span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; pivot) &#123;</span><br><span class="line">            left.push(arr[i]); <span class="comment"># 比基准点小的放在左边数组</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right.push(arr[i]); <span class="comment"># 比基准点大的放在右边数组</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 递归执行以上操作,对左右两个数组进行操作，直到数组长度为&lt;=1；</span></span><br><span class="line">    <span class="built_in">return</span> quickSort(left).concat([pivot], quickSort(right));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var arr = [14, 50, 80, 7, 2, 2, 11];</span><br><span class="line">console.log(quickSort(arr));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>冒泡</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 性能一般</span></span><br><span class="line"><span class="keyword">function</span> bSort(arr) &#123;</span><br><span class="line">  var len = arr.length;</span><br><span class="line">  <span class="keyword">for</span> (var i = 0; i &lt; len-1; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (var j = 0; j &lt; len - 1 - i; j++) &#123;</span><br><span class="line">         <span class="comment"># 相邻元素两两对比，元素交换，大的元素交换到后面</span></span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + 1]) &#123;</span><br><span class="line">            var temp = arr[j];</span><br><span class="line">            arr[j] = arr[j+1];</span><br><span class="line">            arr[j+1] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">myArr = [20,18,27,19,35];</span><br><span class="line">bSort(myArr)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sort()</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一维数组排序</span></span><br><span class="line">var arr=[1,5,7,9,16,2,4];</span><br><span class="line">arr.sort(<span class="keyword">function</span>(a,b)&#123;</span><br><span class="line">    <span class="built_in">return</span> b<span class="_">-a</span>;  <span class="comment"># 降序排列，return a-b; —&gt;升序排列</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>事件委托、事件冒泡</strong></p>
+</blockquote>
+<ul>
+<li>事件委托：</li>
+</ul>
+<p>原理：我们要给每一个按钮绑定一个事件，但是这样遍历，太消耗性能了，于是我们直接给父元素绑定即可完成。解决了以下几个问题：</p>
+<p>– 遍历带来的性能问题。<br>– button如果是动态添加的，那么必须用事件委托。<br>– 由于事件委托是通过事件冒泡实现的，所以如果子级的元素(e.stopPropagation())阻止了事件冒泡，那么事件委托也将失效！</p>
+<ul>
+<li>事件冒泡 </li>
+</ul>
+<p>原理：就是点击最里面的元素，会触发父元素的方法</p>
+<p>添加e.stopPropagation()阻止事件冒泡</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> stopDefault( e ) &#123; </span><br><span class="line">    <span class="comment"># 阻止默认浏览器动作(W3C) </span></span><br><span class="line">    <span class="keyword">if</span> ( e &amp;&amp; e.preventDefault ) </span><br><span class="line">        e.preventDefault(); </span><br><span class="line">    <span class="comment"># IE中阻止函数器默认动作的方式 </span></span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        window.event.returnValue = <span class="literal">false</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>this理解</strong></p>
+</blockquote>
+<p>this的指向不是在编写时确定的,而是在执行时确定的，同时，this不同的指向在于遵循了一定的规则。</p>
+<ul>
+<li>默认情况下，指向全局，浏览器的话就是指向window      ①</li>
+<li>如果函数被调用的位置存在上下文，那么函数被隐式绑定  ②</li>
+<li>new 指向这个新对象 ③</li>
+<li>箭头函数的是没有属于自己的this的，它所谓的this是捕获其上下文的this，作为自己的this，所以箭头函数不会被new调用,所谓的this也不会被改变</li>
+<li>如果是call，apply，bind等，指定的this是谁，就是谁。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ①</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123;</span><br><span class="line">	console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">a(); <span class="comment"># window</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ②</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">b</span></span>() &#123;</span><br><span class="line">	console.log( this );</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    name: <span class="string">"Messi"</span>,</span><br><span class="line">    b: b</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.b(); <span class="comment"># &#123;name: "Messi", f: ƒ&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ③</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">C</span></span>() &#123;</span><br><span class="line">    console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">const d = new C();</span><br><span class="line">console.log(d); <span class="comment"># C &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>ajax跨域</strong></p>
+</blockquote>
+<p>我对 ajax 的理解是，它是一种异步通信的方法，通过直接由 js 脚本向服务器发起 http 通信，然后根据服务器返回的数据，更新网页的相应部分，而不用刷新整个页面的一种方法。</p>
+<p>跨域问题来源于JavaScript的同源策略，即只有 协议+主机名+端口号 (如存在)相同，则允许相互访问。也就是说JavaScript只能访问和操作自己域下的资源，不能访问和操作其他域下的资源。跨域问题是针对JS和ajax的，html本身没有跨域问题，比如a标签、script标签、甚至form标签（可以直接跨域发送数据并接收数据）等 </p>
+<blockquote>
+<p><strong>实现原生ajax请求</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">createXHR</span></span>() &#123;  </span><br><span class="line">  <span class="keyword">if</span> (window.XMLHttpRequest) &#123;   </span><br><span class="line">   	<span class="built_in">return</span> new XMLHttpRequest();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment"># 兼容IE5和IE6</span></span><br><span class="line">    <span class="built_in">return</span> new ActiveXObject(<span class="string">'Microsoft.XMLHttp'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var xhr = createXHR();</span><br><span class="line">xhr.onReadyStateChange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState == 4) &#123;</span><br><span class="line">    <span class="comment"># 状态码为200至300之间或304都表示这一请求已经成功</span></span><br><span class="line">        <span class="keyword">if</span> ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status == 304) &#123;</span><br><span class="line">            console.log(xhr.responseText)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># GET</span></span><br><span class="line">xhr.open(<span class="string">'GET'</span>, url);</span><br><span class="line">xhr.send();</span><br><span class="line"></span><br><span class="line"><span class="comment"># POST</span></span><br><span class="line">xhr.open(<span class="string">'POST'</span>, url);</span><br><span class="line">xhr.send(data);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>promise封装实现</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># promise 封装实现：</span></span><br><span class="line"><span class="keyword">function</span> getJSON(url) &#123;</span><br><span class="line">  <span class="comment"># 创建一个 promise 对象</span></span><br><span class="line">  <span class="built_in">let</span> promise = new Promise(<span class="keyword">function</span>(resolve, reject) &#123;</span><br><span class="line">    <span class="built_in">let</span> xhr = new XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 新建一个 http 请求</span></span><br><span class="line">    xhr.open(<span class="string">"GET"</span>, url, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置状态的监听函数</span></span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">      <span class="keyword">if</span> (this.readyState !== 4) <span class="built_in">return</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment"># 当请求成功或失败时，改变 promise 的状态</span></span><br><span class="line">      <span class="keyword">if</span> (this.status === 200) &#123;</span><br><span class="line">        resolve(this.response);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(new Error(this.statusText));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置错误监听函数</span></span><br><span class="line">    xhr.onerror = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">      reject(new Error(this.statusText));</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置响应的数据类型</span></span><br><span class="line">    xhr.responseType = <span class="string">"json"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置请求头信息</span></span><br><span class="line">    xhr.setRequestHeader(<span class="string">"Accept"</span>, <span class="string">"application/json"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 发送 http 请求</span></span><br><span class="line">    xhr.send(null);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> promise;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>js作用域？作用域链</strong></p>
+</blockquote>
+<ul>
+<li>作用域</li>
+</ul>
+<p>作用域就是一套规则，用于确定何处以及如何查找变量（标识符）的规则，通俗讲作用域就是查找变量的地方。<br> 在JavaScript中，每一个函数都有各自的作用域(scope)。只有在函数内部的变量才可以访问到该函数域的变量。<br> 在同一个作用域内部，变量名必须唯一。作用域可以嵌套。在最内部的作用域中，可以访问任何外部的作用域的变量。</p>
+<ul>
+<li>作用域链</li>
+</ul>
+<p>作用域链的作用是保证对执行环境有权访问的所有变量和函数的有序访问，通过作用域链，我们可以访问到外层环境的变量和 函数。</p>
+<p>作用域链的本质上是一个指向变量对象的指针列表。变量对象是一个包含了执行环境中所有变量和函数的对象。作用域链的前 端始终都是当前执行上下文的变量对象。全局执行上下文的变量对象（也就是全局对象）始终是作用域链的最后一个对象。</p>
+<p>当我们查找一个变量时，如果当前执行环境中没有找到，我们可以沿着作用域链向后查找。</p>
+<p>作用域链的创建过程跟执行上下文的建立有关….</p>
+<blockquote>
+<p><strong>js创建对象的方式</strong></p>
+</blockquote>
+<p>– 第一种是工厂模式，工厂模式的主要工作原理是用函数来封装创建对象的细节，从而通过调用函数来达到复用的目的。但是它有一个很大的问题就是创建出来的对象无法和某个类型联系起来，它只是简单的封装了复用代码，而没有建立起对象和类型间的关系。 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> createPerson(name,age,family) &#123;</span><br><span class="line">    var o = new Object();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.age = age;</span><br><span class="line">    o.family = family;</span><br><span class="line">    o.say = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        alert(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person1 =  createPerson(<span class="string">"lisi"</span>,21,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>]);   <span class="comment"># instanceof无法判断它是谁的实例，只能判断他是对象，构造函数都可以判断出</span></span><br><span class="line">console.log(person1 instanceof Object);                           <span class="comment"># true</span></span><br></pre></td></tr></table></figure>
+
+<p>– 第二种是构造函数模式。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name,age,family) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">    this.family = family;</span><br><span class="line">    this.say = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        alert(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var person1 = new Person(<span class="string">"lisi"</span>,21,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>]);</span><br><span class="line">var person2 = new Person(<span class="string">"lisi"</span>,21,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"lisi"</span>]);</span><br><span class="line">console.log(person1 instanceof Object); <span class="comment"># true</span></span><br><span class="line">console.log(person1 instanceof Person); <span class="comment"># true</span></span><br><span class="line">console.log(person2 instanceof Object); <span class="comment"># true</span></span><br><span class="line">console.log(person2 instanceof Person); <span class="comment">#true</span></span><br><span class="line">console.log(person1.constructor);      <span class="comment"># constructor 属性返回对创建此对象的数组、函数的引用</span></span><br></pre></td></tr></table></figure>
+
+<p>– 第三种模式是原型模式，解决了函数对象的复用问题。但是这种模式也存在一些问题，一个是没有办法通过传入参数来初始化值，另一个是如果存在一个引用类型如 Array 这样的值，那么所有的实例将共享一个对象，一个实例对引用类型值的改变会影响所有的实例。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span>() &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.name = <span class="string">"lisi"</span>;</span><br><span class="line">Person.prototype.age = 21;</span><br><span class="line">Person.prototype.family = [<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>];</span><br><span class="line">Person.prototype.say = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    alert(this.name);</span><br><span class="line">&#125;;</span><br><span class="line">console.log(Person.prototype);   <span class="comment"># Object&#123;name: 'lisi', age: 21, family: Array[3]&#125;</span></span><br><span class="line"></span><br><span class="line">var person1 = new Person();        <span class="comment"># 创建一个实例person1</span></span><br><span class="line">console.log(person1.name);        <span class="comment"># lisi</span></span><br><span class="line"></span><br><span class="line">var person2 = new Person();        <span class="comment"># 创建实例person2</span></span><br><span class="line">person2.name = <span class="string">"wangwu"</span>;</span><br><span class="line">person2.family = [<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"lisi"</span>];</span><br><span class="line">console.log(person2);            <span class="comment"># Person &#123;name: "wangwu", family: Array[3]&#125;</span></span><br><span class="line"><span class="comment"># console.log(person2.prototype.name);         # 报错</span></span><br><span class="line">console.log(person2.age);              <span class="comment"># 21</span></span><br></pre></td></tr></table></figure>
+
+<p>– 第四种模式是组合使用构造函数模式和原型模式，这是创建自定义类型的最常见方式。因为构造函数模式和原型模式分开使用都存在一些问题，因此我们可以组合使用这两种模式，通过构造函数来初始化对象的属性，通过原型对象来实现函数方法的复用。这种方法很好的解决了两种模式单独使用时的缺点，但是有一点不足的就是，因为使用了两种不同的模式，所以对于代码的封装性不够好。 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name,age,family)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">    this.family = family;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    constructor: Person,  <span class="comment"># 每个函数都有prototype属性，指向该函数原型对象，原型对象都有constructor属性，这是一个指向prototype属性所在函数的指针</span></span><br><span class="line">    say: <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        alert(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person1 = new Person(<span class="string">"lisi"</span>,21,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>]);</span><br><span class="line">console.log(person1);</span><br><span class="line">var person2 = new Person(<span class="string">"wangwu"</span>,21,[<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"lisi"</span>]);</span><br><span class="line">console.log(person2);</span><br></pre></td></tr></table></figure>
+
+<p>– 第五种模式是new 操作符 + Object 创建对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var person = new Object();</span><br><span class="line">    person.name = <span class="string">"lisi"</span>;</span><br><span class="line">    person.age = 21;</span><br><span class="line">    person.family = [<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>];</span><br><span class="line">    person.say = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        alert(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>– 第六种模式是字面式创建对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var person =&#123;</span><br><span class="line">    name: <span class="string">"lisi"</span>,</span><br><span class="line">    age: 21,</span><br><span class="line">    family: [<span class="string">"lida"</span>,<span class="string">"lier"</span>,<span class="string">"wangwu"</span>],</span><br><span class="line">    say: <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    	alert(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>js继承方式</strong></p>
+</blockquote>
+<ul>
+<li>以原型链的方式来实现继承</li>
+</ul>
+<p>这种实现方式存在的缺点是，在包含有引用类型的数据时，会被所有的实例对象所共享，容易造成修改的混乱。还有就是在创建子类型的时候不能向超类型传递参数。</p>
+<ul>
+<li>构造函数的方式</li>
+</ul>
+<p>这种方式是通过在子类型的函数中调用超类型的构造函数来实现的，这一种方法解决了不能向超类型传递参数的缺点，但是它存在的一个问题就是无法实现函数方法的复用，并且超类型原型定义的方法子类型也没有办法访问到。 </p>
+<ul>
+<li>组合继承</li>
+</ul>
+<p>组合继承是将原型链和借用构造函数组合起来使用的一种方式。通过借用构造函数的方式来实现类型的属性的继承，通过将子类型的原型设置为超类型的实例来实现方法的继承。这种方式解决了上面的两种模式单独使用时的问题，但是由于我们是以超类型的实例来作为子类型的原型，所以调用了两次超类的构造函数，造成了子类型的原型中多了很多不必要的属性。</p>
+<ul>
+<li>原型式继承</li>
+</ul>
+<p>原型式继承的主要思路就是基于已有的对象来创建新的对象，实现的原理是，向函数中传入一个对象，然后返回一个以这个对象为原型的对象。这种继承的思路主要不是为了实现创造一种新的类型，只是对某个对象实现一种简单继承，ES5 中定义的 Object.create() 方法就是原型式继承的实现。缺点与原型链方式相同。</p>
+<ul>
+<li>寄生式继承</li>
+</ul>
+<p>寄生式继承的思路是创建一个用于封装继承过程的函数，通过传入一个对象，然后复制一个对象的副本，然后对象进行扩展，最后返回这个对象。这个扩展的过程就可以理解是一种继承。这种继承的优点就是对一个简单对象实现继承，如果这个对象不是我们的自定义类型时。缺点是没有办法实现函数的复用。</p>
+<ul>
+<li>寄生式组合继承</li>
+</ul>
+<p>组合继承的缺点就是使用超类型的实例做为子类型的原型，导致添加了不必要的原型属性。寄生式组合继承的方式是使用超类型的原型的副本来作为子类型的原型，这样就避免了创建不必要的属性。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 寄生式组合继承的实现</span></span><br><span class="line"><span class="keyword">function</span> Person(name) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(<span class="string">"My name is "</span> + this.name + <span class="string">"."</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> Student(name, grade) &#123;</span><br><span class="line">  Person.call(this, name);</span><br><span class="line">  this.grade = grade;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = Object.create(Person.prototype);</span><br><span class="line">Student.prototype.constructor = Student;</span><br><span class="line"></span><br><span class="line">Student.prototype.sayMyGrade = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(<span class="string">"My grade is "</span> + this.grade + <span class="string">"."</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>JS两种查询方式</strong></p>
+</blockquote>
+<p>在js引擎中存在两种不同的查询方式：LHS（Left-hand Side）、RHS（Right-hand Side）</p>
+<p>LHS: left是的指“=”号的左边，意思是要给查询得到的这个变量赋值；ex: 1赋值给a变量，要先查询a是否存在，这时候用的就是LHS查询;</p>
+<p>RHS: right指的是“=”号右边，意思是要获取某个变量的值; ex: 输出变量a{console.log(a)} js引擎要去查询这个变量是否存在，得到变量的值，这个时候用的就是RHS查询</p>
+<p>LHS查询比较松散，如果查询不到，就会创建一个全局的，不会抛出异常</p>
+<p>RHS查询比较严格，如果查询不到的话就会抛出异常，因为你要获取某个变量指向的值，可是根本就没有那个变量，这个时候已经超出它的能力范围，所以只能抛出异常</p>
+<p>其实这也是符合js的松散的本性，好比你要给钱某个人，找不到那个人，我就用它的名义领了，毕竟这不吃亏，这是LHS,但是如果你是追债，那必须要找到欠你的钱那个人，我不可能替你还钱的，这就是RHS,如果找不到只能报警，抛出异常</p>
+<blockquote>
+<p><strong>编译器工作方式</strong></p>
+</blockquote>
+<p>代码执行前从上到下进行编译，遇到某个var声明的变量，先检查当前作用域 是否存在该变量。如果存在，忽略声明；不存在，则在该作用域声明。</p>
+<blockquote>
+<p><strong>场景模式</strong></p>
+</blockquote>
+<p>在一款实时性要求比较高的应用里，应用列表的数据，不仅要在应用列表中显示，侧边栏里也会显示应用的数量，还有很多下拉菜单里面也会出现它。如何实现一处数据更新处处更新了？</p>
+<p>此题考查是否了解redux /rxjs 类库，比如弄个全局的状态树，各个组件使用全局的状态，这样可以保证数据的一致，但redux 在面对复杂的异步逻辑时就无能为力，此时可以考虑rxjs中的流。</p>
+<blockquote>
+<p><strong>耦合</strong></p>
+</blockquote>
+<p>软件设计中的“耦合”指，两个功能函数之间的依赖程度。</p>
+<p>ex: 你设计的一个程序，需要你编写10个功能函数来实现。如果这10个功能中，有9个功能都要调取第10个功能函数X10，那么，当你在修改X10时，你就要考虑修改完成后，是否会对其它9个功能函数有影响，为了查看是否有不好影响，你就要对其它9个功能函数，一个一个进行测试。所以，为了避免产生这种后期修改的劳动量。就提倡【松耦合】，就是，功能函数之间，尽量依赖程度不要太高。否则，修改完一个底层函数后，会对多个上层函数，进行大量的测试。</p>
+<p>【松耦合】的方法，一般是底层函数，功能尽量单一，尽量避免修改底层函数。功能相近的函数，可以设计2个以上，不要为了减少代码量，把一个函数的功能设计的太多。</p>
+<blockquote>
+<p><strong>观察者模式和发布订阅模式</strong></p>
+</blockquote>
+<p>这两种是在JavaScript常见的设计模式，首先要区分观察者模式和发布订阅模式并非等同，观察者模式是一种紧耦合的状态，而发布/订阅模式是一种松耦合的状态。</p>
+<ul>
+<li>观察者模式（Observer pattern）</li>
+</ul>
+<p>所谓观察者模式，其实就是为了实现松耦合(loosely coupled)</p>
+<p>用《Head First设计模式》里的气象站为例子，每当气象测量数据有更新，<code>changed()</code>方法就会被调用，于是我们可以在<code>changed()</code>方法里面，更新气象仪器上的数据，比如温度、气压等等。</p>
+<p>但是这样写有个问题，就是如果以后我们想在<code>changed()</code>方法被调用时，更新更多的信息，比如说湿度，那就要去修改<code>changed()</code>方法的代码，这就是紧耦合的坏处。</p>
+<p>怎么解决呢？使用观察者模式，面向接口编程，实现松耦合;</p>
+<ul>
+<li>发布订阅模式</li>
+</ul>
+<p>在发布订阅模式里，发布者，并不会直接通知订阅者，换句话说，发布者和订阅者，彼此互不相识。</p>
+<p>互不相识？那他们之间如何交流？</p>
+<p>答案是，通过第三者，也就是在消息队列里面，我们常说的经纪人Broker。</p>
+<p>发布者只需告诉Broker，我要发的消息，topic是AAA；</p>
+<p>订阅者只需告诉Broker，我要订阅topic是AAA的消息；</p>
+<p>于是，当Broker收到发布者发过来消息，并且topic是AAA时，就会把消息推送给订阅了topic是AAA的订阅者。当然也有可能是订阅者自己过来拉取，看具体实现。</p>
+<p>也就是说，发布订阅模式里，发布者和订阅者，不是松耦合，而是完全解耦的。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-540a78ba3127b0c6882adc668e7a3535_720w.jpg" alt="Image text"></p>
+<ul>
+<li>总结</li>
+</ul>
+<p>从表面上看：</p>
+<p>– 观察者模式里，只有两个角色 —— 观察者 + 被观察者</p>
+<p>– 而发布订阅模式里，却不仅仅只有发布者和订阅者两个角色，还有一个经常被我们忽略的 —— 经纪人Broker</p>
+<p>往更深层次讲：</p>
+<p>– 观察者和被观察者，是松耦合的关系</p>
+<p>– 发布者和订阅者，则完全不存在耦合</p>
+<p>从使用层面上讲：</p>
+<p>– 观察者模式，多用于单个应用内部</p>
+<p>– 发布订阅模式，则更多的是一种跨应用的模式(cross-application pattern)，比如我们常用的消息中间件</p>
+<blockquote>
+<p><strong>{} 和 [] 的valueOf和toString的结果是什么</strong></p>
+</blockquote>
+<p>{} 的 valueOf 结果为 {} ，toString 的结果为 “[object Object]” </p>
+<p>[] 的 valueOf 结果为 [] ，toString 的结果为 “”</p>
+<blockquote>
+<p><strong>js中的原型、原型链</strong></p>
+</blockquote>
+<p>在JavaScript中，如果我们声明一个变量<code>var a = 1</code>与<code>var b = new Number(1)</code>是不一样的，前者会将变量a直接存放在stack(栈)内存中，而后者是在stack中建立一个引用，引用的是heap(堆)内存中的对象，该对象拥有两个key：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Number &#123;1&#125;</span><br><span class="line">__proto__: Number</span><br><span class="line">[[PrimitiveValue]]: 1 <span class="comment"># PrimitiveValue(原始值): 原始值直接代表语言实现的最底层的数据</span></span><br></pre></td></tr></table></figure>
+
+<p>其中key：PrimitiveValue的值就是number的值1，对象的另一个key：<code>__proto__</code>。</p>
+<ul>
+<li>原型</li>
+</ul>
+<p>如果我们用new的方式创建对象，一般有下面四种数据类型：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.Number</span></span><br><span class="line">var n = new Number(1) <span class="comment"># 创建一个 Number 对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.String</span></span><br><span class="line">var s = new String(<span class="string">'hello'</span>) <span class="comment"># 创建一个 String 对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.Boolean</span></span><br><span class="line">var b = new Boolean(<span class="literal">true</span>) <span class="comment"># 创建一个 Boolean 对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.Object</span></span><br><span class="line">var o1 = &#123;&#125;</span><br><span class="line">var o2 = new Object()</span><br><span class="line"><span class="comment"># o1 和 o2 没区别</span></span><br></pre></td></tr></table></figure>
+
+<p>创建数据之后，以对象n为例，对象n会拥有诸多方法：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15521243-1dcea19f3ea8fb6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/262/format/webp" alt=""></p>
+<p>比如：toString()、toFixed()。<br>对象n怎么拥有这些方法的呢？<br>重点就是<code>__proto__</code> 这个属性，每当我们使用<code>new</code>语法的时候，对象就会拥有<code>__proto__</code> 这个属性，该属性会指向new之后对应函数（也就是Number）的prototype属性，这个属性是Number共有属性，该共有属性会拥有诸多共有方法，也就是说：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n.__proto__  === Number.prototype</span><br><span class="line"><span class="comment"># true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>原型的原型</li>
+</ul>
+<p>仍然以对象n为例，如果对象n的方法在共有的Number属性中找不到，怎么办呢？那么会继续向上一层去寻找，就像数据结构一样。也就是说会向<code>Number.prototype.__proto__</code>中继续寻找，该对象对应的就是另一个对象：Object.prototype。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15521243-0b1c5642c393e18c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/318/format/webp" alt=""></p>
+<p>如果还找不到再继续向上一层找呢？那么就是<code>Object.prototype.__proto__</code>，它的值为null，也就是在JS的数据结构中，这是顶层了。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15521243-c02370dce35381fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/430/format/webp" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15521243-c41a5d5645faa1da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/260/format/webp" alt=""></p>
+<ul>
+<li>原型链与总结</li>
+</ul>
+<p>只要是使用new方法得到的对象，不管是string还是Number或者Boolean，这三种数据类型都有其函数对应的prototype方法，而他们三种数据的prototype方法的上一层（<code>prototype.__proto__</code>）就是object对象的prototype方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var 对象 = new 函数()</span><br><span class="line">对象.__proto__ == 函数.prototype</span><br></pre></td></tr></table></figure>
+
+<p>而.__proto一层一层的指向就可以被称为<strong>原型链</strong>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 推论</span></span><br><span class="line">var number = new Number()</span><br><span class="line">number.__proto__ = Number.prototype</span><br><span class="line">Number.__proto__ = Function.prototype <span class="comment"># 因为 Number 是 Function 的实例</span></span><br><span class="line"></span><br><span class="line">var object = new Object()</span><br><span class="line">object.__proto__ = Object.prototype</span><br><span class="line">Object.__proto__ = Function.prototype <span class="comment"># 因为 Object 是 Function 的实例</span></span><br><span class="line"></span><br><span class="line">var <span class="keyword">function</span> = new Function()</span><br><span class="line">function.__proto__ = Function.prototype</span><br><span class="line">Function.__proto__ == Function.prototye <span class="comment"># 因为 Function 是 Function 的实例！</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>获取原型的方法</strong></p>
+</blockquote>
+<ul>
+<li>p.proto</li>
+<li>p.constructor.prototype</li>
+<li>Object.getPrototypeOf(p)</li>
+</ul>
+<blockquote>
+<p><strong>DOM操作</strong></p>
+</blockquote>
+<ul>
+<li>创建节点</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">createDocumentFragment()    <span class="comment"># 创建一个DOM片段</span></span><br><span class="line">createElement()   <span class="comment"># 创建一个具体的元素</span></span><br><span class="line">createTextNode()   <span class="comment"># 创建一个文本节点</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加、移除、替换、插入</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">appendChild(node)</span><br><span class="line">removeChild(node)</span><br><span class="line">replaceChild(new,old)</span><br><span class="line">insertBefore(new,old)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查找</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getElementById();</span><br><span class="line">getElementsByName();</span><br><span class="line">getElementsByTagName();</span><br><span class="line">getElementsByClassName();</span><br><span class="line">querySelector();</span><br><span class="line">querySelectorAll();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>属性操作</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getAttribute(key);</span><br><span class="line">setAttribute(key, value);</span><br><span class="line">hasAttribute(key);</span><br><span class="line">removeAttribute(key);</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>DOM / BOM</strong></p>
+</blockquote>
+<ul>
+<li>DOM</li>
+</ul>
+<p>指的是文档对象模型，它指的是把文档当做一个对象来对待，这个对象主要定义了处理网页内容的方法和接口。</p>
+<ul>
+<li>BOM</li>
+</ul>
+<p>指的是浏览器对象模型，它指的是把浏览器当做一个对象来对待，这个对象主要定义了与浏览器进行交互的法和接口。BOM 的核心是 window，而 window 对象具有双重角色，它既是通过 js 访问浏览器窗口的一个接口，又是一个 Global（全局） 对象。这意味着在网页中定义的任何对象，变量和函数，都作为全局对象的一个属性或者方法存在。window 对象含有 locati on 对象、navigator 对象、screen 对象等子对象，并且 DOM 的最根本的对象 document 对象也是 BOM 的 window 对 象的子对象。</p>
+<blockquote>
+<p><strong>typeof实现原理</strong></p>
+</blockquote>
+<p>不同的对象在底层都表示为二进制，在javascript中二进制前三位都为0的话被判断为object类型,null的二进制表示全是0，自然前三位也是0，所以执行typeof时会返回object.</p>
+<p>在 javascript 的最初版本中，使用的 32位系统，为了性能考虑使用低位存储了变量的类型信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">000：对象</span><br><span class="line">1：整数</span><br><span class="line">010：浮点数</span><br><span class="line">100：字符串</span><br><span class="line">110：布尔</span><br><span class="line">有 2 个值比较特殊：</span><br><span class="line">undefined：用 - （−2^30）表示。</span><br><span class="line">null：对应机器码的 NULL 指针，一般是全零。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>instanceof实现原理</strong></p>
+</blockquote>
+<p>instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上，具体含义就是检测对象object的原型链中是否存在一个构造函数的prototype属性</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> instance_of(L, R) &#123; <span class="comment"># L 表示左表达式，R 表示右表达式 </span></span><br><span class="line">    var O = R.prototype; <span class="comment"># 取 R 的显示原型 </span></span><br><span class="line">    L = L.__proto__; <span class="comment"># 取 L 的隐式原型</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (L === null) <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (O === L) <span class="built_in">return</span> <span class="literal">true</span>; <span class="comment"># 当 O 显式原型 严格等于  L隐式原型 时，返回true</span></span><br><span class="line">        L = L.__proto__;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;    </span><br><span class="line">instance_of(123, Number); </span><br><span class="line"><span class="comment"># 这个当中执行了什么？首先，传入的值123的_proto_（即数值123的隐式原型）是一个Number对象，而传入的另一个值是Number类型，我们拿Number的prototype（即显示原型）也是一个Number对象，所以instance_of函数会返回一个true，即数值123的隐式原型和Number类型的显示原型相等，所以可以得出结论：123是Number类型。</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>js数据类型</strong></p>
+</blockquote>
+<p>number、string、object、Boolean、null、undefined、Symbol(es6)、BigInt(es10)</p>
+<ul>
+<li>值的存储</li>
+</ul>
+<p>原始数据类型直接存储在栈(stack)中，占据空间小，大小固定，属于被频繁使用的数据。</p>
+<p>引用型数据同时存储在栈和堆(heap)中，占据空间大、大小不固定。引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其中栈中的地址，取得地址后从堆中获得实体。</p>
+<ul>
+<li>typeof</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var a=<span class="string">"string"</span>; console.log(typeof a); <span class="comment"># string</span></span><br><span class="line">var a=1; console.log(typeof a); <span class="comment"># number</span></span><br><span class="line">var a=<span class="literal">false</span>; console.log(typeof a); <span class="comment"># boolean</span></span><br><span class="line">var a; console.log(typeof a); <span class="comment"># undfined</span></span><br><span class="line"> </span><br><span class="line">var a = null; console.log(typeof a); <span class="comment"># object</span></span><br><span class="line">var a = document; console.log(typeof a); <span class="comment"># object</span></span><br><span class="line">var a = []; console.log(typeof a); <span class="comment"># object</span></span><br><span class="line"> </span><br><span class="line">var a = <span class="function"><span class="title">function</span></span>()&#123;&#125;; console.log(typeof a) <span class="comment"># function   除了可以判断数据类型还可以判断function类型</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>toString（最完美）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call(<span class="string">''</span>) ;   <span class="comment"># [object String]</span></span><br><span class="line">Object.prototype.toString.call(1) ;    <span class="comment"># [object Number]</span></span><br><span class="line">Object.prototype.toString.call(<span class="literal">true</span>) ; <span class="comment"># [object Boolean] </span></span><br><span class="line">Object.prototype.toString.call(Symbol()); <span class="comment"># [object Symbol]</span></span><br><span class="line">Object.prototype.toString.call(undefined) ; <span class="comment"># [object Undefined]</span></span><br><span class="line">Object.prototype.toString.call(null) ; <span class="comment"># [object Null]</span></span><br><span class="line">Object.prototype.toString.call(new Function()) ; <span class="comment"># [object Function]</span></span><br><span class="line">Object.prototype.toString.call(new Date()) ; <span class="comment"># [object Date]</span></span><br><span class="line">Object.prototype.toString.call([]) ; <span class="comment"># [object Array]</span></span><br><span class="line">Object.prototype.toString.call(new RegExp()) ; <span class="comment"># [object RegExp]</span></span><br><span class="line">Object.prototype.toString.call(new Error()) ; <span class="comment"># [object Error]</span></span><br><span class="line">Object.prototype.toString.call(document) ; <span class="comment"># [object HTMLDocument]</span></span><br><span class="line">Object.prototype.toString.call(window); <span class="comment"># [object global] window 是全局对象 global 的引用</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>constructor</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1334093/201904/1334093-20190422154822998-1507326377.png" alt=""></p>
+<ul>
+<li>instanceof(基于原型链)</li>
+</ul>
+<p>A instanceof B</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Foo</span></span>()&#123;&#125; </span><br><span class="line">var foo = new Foo(); </span><br><span class="line">console.log(foo instanceof Foo) <span class="comment"># true</span></span><br><span class="line"></span><br><span class="line">console.log(Object instanceof Object); <span class="comment"># true  </span></span><br><span class="line">console.log(Function instanceof Function); <span class="comment"># true </span></span><br><span class="line">console.log(Number instanceof Number); <span class="comment"># false </span></span><br><span class="line">console.log(Number.prototype,Number.__proto__) <span class="comment"># false	 Number&#123;...&#125;</span></span><br><span class="line">console.log(String instanceof String); <span class="comment"># false </span></span><br><span class="line"> </span><br><span class="line">console.log(Function instanceof Object); <span class="comment"># true </span></span><br><span class="line"> </span><br><span class="line">console.log(Foo instanceof Function); <span class="comment"># true </span></span><br><span class="line">console.log(Foo instanceof Foo); <span class="comment"># false</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>浅谈JS中的堆内存与栈内存</strong></p>
+</blockquote>
+<p>在js引擎中对变量的存储主要有两种位置，<strong>堆内存和栈内存</strong>。</p>
+<p>和java中对内存的处理类似，<strong>栈内存</strong>主要用于存储各种<strong>基本类型的</strong>变量，包括Boolean、Number、String、Undefined、Null，**以及对象变量的指针，这时候栈内存给人的感觉就像一个线性排列的空间，每个小单元大小基本相等。</p>
+<p>而堆内存主要负责像对象Object这种变量类型的存储，如下图</p>
+<p><img src="https://images2018.cnblogs.com/blog/461976/201808/461976-20180823211511434-1707579794.png" alt=""></p>
+<p>栈内存中的变量一般都是已知大小或者有范围上限的，算作一种简单存储。而堆内存存储的对象类型数据对于大小这方面，一般都是未知的.</p>
+<ul>
+<li>内存分配和垃圾回收</li>
+</ul>
+<p>一般来说栈内存线性有序存储，容量小，系统分配效率高。而堆内存首先要在堆内存新分配存储区域，之后又要把指针存储到栈内存中，效率相对就要低一些了。<br>垃圾回收方面，栈内存变量基本上用完就回收了，而推内存中的变量因为存在很多不确定的引用，只有当所有调用的变量全部销毁之后才能回收。</p>
+<blockquote>
+<p><strong>var、let、const的区别</strong></p>
+</blockquote>
+<ul>
+<li>作用域</li>
+</ul>
+<p>var为全局作用域,而let和const为局部作用域</p>
+<ul>
+<li>变量声明</li>
+</ul>
+<p>var和let可以仅声明不赋值,但是const必须赋值,否则报错</p>
+<ul>
+<li>是否可以修改</li>
+</ul>
+<p>var和let声明的变量,可随意修改;const声明的变量,若为基本数据类型不可修改,若为引用数据类型,可修改值,不可修改引用地址</p>
+<p>Vue父子组件传值,子组件中的props为const声明的变量,若为数组,清空数组的时候可以用array.length = 0(若为array = []会报错,因为修改了引用地址)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">a =2;</span><br><span class="line">console.log(a) <span class="comment"># 2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> b = 1;</span><br><span class="line">b = 2;</span><br><span class="line">console.log(b) <span class="comment"># 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># c为基本数据类型不可修改</span></span><br><span class="line">const c = 1;</span><br><span class="line">c = 2; <span class="comment"># 报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># d为引用数据类型</span></span><br><span class="line">const d = [1,2,3];</span><br><span class="line">d.push(4); <span class="comment"># 对引用数据类型进行值的修改可进行</span></span><br><span class="line">console.log(d); <span class="comment"># [1,2,3,4]</span></span><br><span class="line">d = [1,2,3,4,5] <span class="comment"># 对引用数据类型进行地址修改,报错</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>是否可重复声明</li>
+</ul>
+<p>var可以重复声明;let和const不可重复声明</p>
+<ul>
+<li><p>变量提升</p>
+<p>var 声明的变量会进行变量提升,但是赋值不提升;let和const声明的变量不会提升</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>指针</strong></p>
+</blockquote>
+<p>指针也就是内存地址，指针变量是用来存放内存地址的变量，不同类型的指针变量所占用的存储单元长度是相同的，而存放数据的变量因数据的类型不同，所占用的存储空间长度也不同.</p>
+<blockquote>
+<p><strong>js内置对象</strong></p>
+</blockquote>
+<p>js内置对象主要指的是在程序执行前存在全局作用域里的由js定义的一些全局值属性、函数和用来实例化其它对象的构造函数对象。一般我们经常用到的如全局变量值 NaN、undefined，全局函数如 parseInt()、parseFloat() 用来实例化对象的构 造函数如 Date、Object 等，还有提供数学计算的单体内置对象如 Math 对象。</p>
+<blockquote>
+<p><strong>undefined 和 undeclared区别</strong></p>
+</blockquote>
+<p>已在作用域中声明但没有赋值的变量是undefined，还没有在作用域中声明的变量是undeclared.</p>
+<p>对于 undeclared 变量的引用，浏览器会报引用错误，如 ReferenceError: b is not defined 。但是我们可以使用 typeof 的安全防范机制来避免报错，因为对于 undeclared（或者 not defined ）变量，typeof 会返回 “undefined”。</p>
+<blockquote>
+<p><strong>null 和 undefined区别</strong></p>
+</blockquote>
+<p>首先 Undefined 和 Null 都是基本数据类型，这两个基本数据类型分别都只有一个值，就是 undefined 和 null。</p>
+<p>undefined 代表的含义是未定义， null 代表的含义是空对象（其实不是真的对象）。一般变量声明了但还没有定义的时候会返回 undefined，null 主要用于赋值给一些可能会返回对象的变量，作为初始化。</p>
+<blockquote>
+<p><strong>call()和apply()的区别</strong></p>
+</blockquote>
+<p>call与apply都属于Function.prototype的一个方法，所以每个function实例都有call、apply属性.</p>
+<ul>
+<li>作用</li>
+</ul>
+<p>call()方法和apply()方法的作用相同：改变this指向</p>
+<ul>
+<li>区别</li>
+</ul>
+<p>他们的区别在于接收参数的方式不同：</p>
+<p>call() : 第一个参数是this值没有变化，变化的是其余参数都直接传递给函数。在使用call()方法时，传递给函数的参数必须逐个列举出来。</p>
+<p>apply() : 传递给函数的是参数数组.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> add(c, d)&#123; </span><br><span class="line">    <span class="built_in">return</span> this.a + this.b + c + d; </span><br><span class="line">&#125; </span><br><span class="line">var o = &#123;a:1, b:3&#125;; </span><br><span class="line">add.call(o, 5, 7); <span class="comment"># 1 + 3 + 5 + 7 = 16 </span></span><br><span class="line">add.apply(o, [10, 20]); <span class="comment"># 1 + 3 + 10 + 20 = 34 </span></span><br><span class="line"><span class="comment"># this指向 &#123;a: 1, b: 3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>eval()</strong></p>
+</blockquote>
+<ul>
+<li>作用</li>
+</ul>
+<p>把对应的字符串解析成js代码并运行（将json的字符串解析成为JSON对象）</p>
+<ul>
+<li>特点</li>
+</ul>
+<p>它是一个全局函数</p>
+<ul>
+<li>缺点</li>
+</ul>
+<p>– 在该函数内部申明的变量都是全局变量，且申明的变量不会提升；</p>
+<p>– 耗性能，执行2次，一次解析成js语句，一次执行js代码；</p>
+<blockquote>
+<p><strong>深拷贝、浅拷贝</strong></p>
+</blockquote>
+<ul>
+<li>浅拷贝</li>
+</ul>
+<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p>
+<p>– 浅拷贝方法</p>
+<p>Object.assign() : ES6中拷贝对象的方法，接受的第一个参数是拷贝的目标，剩下的参数是拷贝的源对象（可以是多个）</p>
+<p>语法：Object.assign(target, …sources)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var target = &#123;&#125;;</span><br><span class="line">var <span class="built_in">source</span> = &#123;a:1&#125;;</span><br><span class="line">Object.assign(target,<span class="built_in">source</span>);</span><br><span class="line">console.log(target); <span class="comment"># &#123;a:1&#125;</span></span><br><span class="line">source.a = 2;</span><br><span class="line">console.log(<span class="built_in">source</span>); <span class="comment"># &#123;a:2&#125;</span></span><br><span class="line">console.log(target); <span class="comment"># &#123;a:1&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>深拷贝</li>
+</ul>
+<p>将一个对象从内存中完整的拷贝一份出来,从堆内存中开辟一个新的区域存放新对象,且修改新对象不会影响原对象。</p>
+<p>– es6</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=[1,2,3]</span><br><span class="line">var b=[...a];</span><br><span class="line">b.push(4);</span><br><span class="line">console.log(b) <span class="comment"># 1,2,3,4</span></span><br><span class="line">console.log(a) <span class="comment"># 1,2,3</span></span><br></pre></td></tr></table></figure>
+
+<p>– concat</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=[1,2,3]</span><br><span class="line">var c=[];</span><br><span class="line">var b=c.concat(a);</span><br><span class="line">b.push(4);</span><br><span class="line">console.log(b) <span class="comment"># 1,2,3,4</span></span><br><span class="line">console.log(a) <span class="comment"># 1,2,3</span></span><br></pre></td></tr></table></figure>
+
+<p>– slice()</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=[1,2,3]</span><br><span class="line">var b=a.slice(0);</span><br><span class="line">b.push(4);</span><br><span class="line">console.log(b) <span class="comment"># 1,2,3,4</span></span><br><span class="line">console.log(a) <span class="comment"># 1,2,3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂深拷贝（对象或者数组）</strong></p>
+<p>– JSON对象的stringify和parse方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=[1,2,3]</span><br><span class="line">var b=JSON.parse(JSON.stringify(a));</span><br><span class="line">b.push(4);</span><br><span class="line">console.log(b) <span class="comment"># 1,2,3,4</span></span><br><span class="line">console.log(a) <span class="comment"># 1,2,3</span></span><br></pre></td></tr></table></figure>
+
+<p>– 递归</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 手写深拷贝</span></span><br><span class="line"><span class="keyword">function</span> deepClone(<span class="built_in">source</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(typeof <span class="built_in">source</span> == (<span class="string">'string'</span>|| <span class="string">'number'</span>))&#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="built_in">source</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(!<span class="built_in">source</span> || typeof <span class="built_in">source</span> != <span class="string">'object'</span>)&#123;</span><br><span class="line">    throw new Error(<span class="string">"error arguments!"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  var newSource = source.constructor === Array? [] : &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span>(var key <span class="keyword">in</span> <span class="built_in">source</span>)&#123;</span><br><span class="line">  	<span class="comment"># hasOwnProperty()方法可以检测对象是否有某个属性</span></span><br><span class="line">    <span class="keyword">if</span>(source.hasOwnProperty(key))&#123;</span><br><span class="line">      <span class="keyword">if</span>(typeof <span class="built_in">source</span>[key] !== <span class="string">'object'</span>)&#123;</span><br><span class="line">        newSource[key] = <span class="built_in">source</span>[key]</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        newSource[key] = deepClone(<span class="built_in">source</span>[key])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> newSource;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>JS性能优化</strong></p>
+</blockquote>
+<ul>
+<li>作用域</li>
+</ul>
+<p>访问当前作用域之外的变量时间会增加，所以 访问全局变量总是比访问局部变量要慢，因为需要遍历作用域链。只要能减少花费在作用域链上的时间，就能增加脚本的整体性能。</p>
+<ul>
+<li>减少DOM操作</li>
+</ul>
+<p>DOM操作应该是脚本中最耗性能的一类操作，例如增加、修改、删除 元素或者对 DOM集合进行操作。如果脚本中包含了大量的 DOM操作则需要注意</p>
+<p>– 限制使用JavaScript来修饰网页布局，把针对访问元素的引用缓存起来。有时，当你的网站依赖大量的DOM改动时，就应该考虑限制你的标记。</p>
+<p>– DOM操作还需要考虑浏览器的 Reflow和Repaint ，因为这些都是需要消耗资源的</p>
+<ul>
+<li><p>网络请求</p>
+</li>
+<li><p>资源合并与压缩</p>
+</li>
+</ul>
+<p>尽可能的将外部的脚本、样式进行合并，多个合为一个。另外， CSS、 Javascript、Image 都可以用相应的工具进行压缩，压缩后往往能省下不少空间。</p>
+<ul>
+<li>CSS Sprites</li>
+</ul>
+<p>合并 CSS图片，减少请求数的又一个好办法。</p>
+<ul>
+<li>Lazy Load Images: 图片懒加载</li>
+<li>网络资源（DNS预解析）</li>
+</ul>
+<p>通过 DNS 预解析来告诉浏览器未来我们可能从某个特定的 URL 获取资源，当浏览器真正使用到该域中的某个资源时就可以尽快地完成 DNS 解析</p>
+<blockquote>
+<p><strong>模块化开发的理解</strong></p>
+</blockquote>
+<p>我对模块的理解是，一个模块是实现一个特定功能的一组方法。在最开始的时候，js 只实现一些简单的功能，所以并没有模块的概念 ，但随着程序越来越复杂，代码的模块化开发变得越来越重要。</p>
+<p>由于函数具有独立作用域的特点，最原始的写法是使用函数来作为模块，几个函数作为一个模块，但是这种方式容易造成全局变量的污 染，并且模块间没有联系。</p>
+<p>后面提出了对象写法，通过将函数作为一个对象的方法来实现，这样解决了直接使用函数作为模块的一些缺点，但是这种办法会暴露所 有的所有的模块成员，外部代码可以修改内部属性的值。</p>
+<p>现在最常用的是立即执行函数的写法，通过利用闭包来实现模块私有作用域的建立，同时不会对全局作用域造成污染。</p>
+<blockquote>
+<p><strong>AMD和CMD规范的区别</strong></p>
+</blockquote>
+<p>第一个方面是在模块定义时对依赖的处理不同。AMD推崇依赖前置，在定义模块的时候就要声明其依赖的模块。而 CMD 推崇就近依赖，只有在用到某个模块的时候再去 require。</p>
+<p>第二个方面是对依赖模块的执行时机处理不同。首先 AMD 和 CMD 对于模块的加载方式都是异步加载，不过它们的区别在于 模块的执行时机，AMD 在依赖模块加载完成后就直接执行依赖模块，依赖模块的执行顺序和我们书写的顺序不一定一致。而 CMD 在依赖模块加载完成后并不执行，只是下载而已，等到所有的依赖模块都加载好后，进入回调函数逻辑，遇到 require 语句 的时候才执行对应的模块，这样模块的执行顺序就和我们书写的顺序保持一致了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CMD</span></span><br><span class="line">define(<span class="keyword">function</span>(require, exports, module) &#123;</span><br><span class="line">  var a = require(<span class="string">"./a"</span>);</span><br><span class="line">  a.doSomething();</span><br><span class="line">  <span class="comment"># 此处略去 100 行</span></span><br><span class="line">  var b = require(<span class="string">"./b"</span>); <span class="comment"># 依赖可以就近书写</span></span><br><span class="line">  b.doSomething();</span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment"># AMD 默认推荐</span></span><br><span class="line">define([<span class="string">"./a"</span>, <span class="string">"./b"</span>], <span class="keyword">function</span>(a, b) &#123;</span><br><span class="line">  <span class="comment"># 依赖必须一开始就写好</span></span><br><span class="line">  a.doSomething();</span><br><span class="line">  <span class="comment"># 此处略去 100 行</span></span><br><span class="line">  b.doSomething();</span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>ES6 模块与 CommonJS 模块、AMD、CMD 的差异</strong></p>
+</blockquote>
+<p>1.<code>CommonJS</code> 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。<code>CommonJS</code> 模块输出的是值，也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。ES6 模块的运行机制与 CommonJS 不一样。JS 引擎对脚本静态分析的时候，遇到模块加载命令 import，就会生成一个只读引用。等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值。</p>
+<p>2.<code>CommonJS</code> 模块是运行时加载，ES6 模块是编译时输出接口。<code>CommonJS</code> 模块就是对象，即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</p>
+<blockquote>
+<p><strong>requireJS的核心原理</strong></p>
+</blockquote>
+<p>require.js 的核心原理是通过动态创建 script 脚本来异步引入模块，然后对每个脚本的 load 事件进行监听，如果每个脚本都加载完成了，再调用回调函数。</p>
+<blockquote>
+<p><strong>浅谈js运行机制</strong></p>
+</blockquote>
+<p> – 首先js 是单线程运行的，在代码执行的时候，通过将不同函数的执行上下文压入执行栈中来保证代码的有序执行。</p>
+<p>– 在执行同步代码的时候，如果遇到了异步事件，js 引擎并不会一直等待其返回结果，而是会将这个事件挂起，继续执行执行栈中的其他任务</p>
+<p>– 当同步事件执行完毕后，再将异步事件对应的回调加入到与当前执行栈中不同的另一个任务队列中等待执行。</p>
+<p>– 任务队列可以分为宏任务对列和微任务对列，当当前执行栈中的事件执行完毕后，js 引擎首先会判断微任务对列中是否有任务可以执行，如果有就将微任务队首的事件压入栈中执行。</p>
+<p>– 当微任务对列中的任务都执行完成后再去判断宏任务对列中的任务。</p>
+<blockquote>
+<p><strong>arguments的对象是什么</strong></p>
+</blockquote>
+<p>arguments对象是函数中传递的参数值的集合。它是一个类似数组的对象，因为它有一个length属性，我们可以使用数组索引表示法arguments[1]来访问单个值，但它没有数组中的内置方法，如：forEach、reduce、filter和map等。</p>
+<p>我们可以使用Array.prototype.slice将arguments对象转换成一个数组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">change</span></span>() &#123;</span><br><span class="line">  <span class="built_in">return</span> Array.prototype.slice.call(arguments);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意:箭头函数中没有arguments对象.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">one</span></span>() &#123;</span><br><span class="line">  <span class="built_in">return</span> arguments;</span><br><span class="line">&#125;</span><br><span class="line">const two = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  <span class="built_in">return</span> arguments;</span><br><span class="line">&#125;</span><br><span class="line">const three = <span class="keyword">function</span> <span class="function"><span class="title">three</span></span>() &#123;</span><br><span class="line">  <span class="built_in">return</span> arguments;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const four = () =&gt; arguments;</span><br><span class="line"></span><br><span class="line">four(); <span class="comment"># Throws an error  - arguments is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>当我们调用函数four时，它会抛出一个<code>ReferenceError: arguments is not defined error</code>。使用rest语法，可以解决这个问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const four = (...args) =&gt; args;</span><br></pre></td></tr></table></figure>
+
+<p>这会自动将所有参数值放入数组中。</p>
+<blockquote>
+<p><strong>哪些操作会造成内存泄漏</strong></p>
+</blockquote>
+<ul>
+<li><p>1.意外的全局变量</p>
+</li>
+<li><p>2.被遗忘的计时器或回调函数</p>
+</li>
+<li><p>3.脱离 DOM 的引用</p>
+</li>
+<li><p>4.闭包</p>
+</li>
+<li><p>第一种情况是我们由于使用未声明的变量，而意外的创建了一个全局变量，而使这个变量一直留在内存中无法被回收。</p>
+</li>
+<li><p>第二种情况是我们设置了<code>setInterval</code>定时器，而忘记取消它，如果循环函数有对外部变量的引用的话，那么这个变量会被一直留在内存中，而无法被回收。</p>
+</li>
+<li><p>第三种情况是我们获取一个DOM元素的引用，而后面这个元素被删除，由于我们一直保留了对这个元素的引用，所以它也无法被回收。</p>
+</li>
+<li><p>第四种情况是不合理的使用闭包，从而导致某些变量一直被留在内存当中。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>ES6新特性</strong></p>
+</blockquote>
+<ul>
+<li>块作用域</li>
+<li>类</li>
+<li>箭头函数</li>
+<li>模板字符串</li>
+<li>加强的对象字面</li>
+<li>对象解构</li>
+<li>Promise</li>
+<li>模块</li>
+<li>Symbol</li>
+<li>代理（proxy）Set</li>
+<li>函数默认参数</li>
+<li>rest 和展开</li>
+</ul>
+<blockquote>
+<p><strong>什么是模板字符串</strong></p>
+</blockquote>
+<p>模板字符串是在 JS 中创建字符串的一种新方法。我们可以通过使用反引号使模板字符串化。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ES5 Version</span></span><br><span class="line">var greet = <span class="string">'Hi I\'</span>m Mark<span class="string">';</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># ES6 Version</span></span><br><span class="line"><span class="string">let greet = `Hi I'</span>m Mark`;</span><br></pre></td></tr></table></figure>
+
+<p>在 ES5 中我们需要使用一些转义字符来达到多行的效果，在模板字符串不需要这么麻烦：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ES5 Version</span></span><br><span class="line">var lastWords = <span class="string">'\n'</span></span><br><span class="line">  + <span class="string">'   I  \n'</span></span><br><span class="line">  + <span class="string">'   Am  \n'</span></span><br><span class="line">  + <span class="string">'Iron Man \n'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ES6 Version</span></span><br><span class="line"><span class="built_in">let</span> lastWords = `</span><br><span class="line">    I</span><br><span class="line">    Am</span><br><span class="line">  Iron Man   </span><br><span class="line">`;</span><br></pre></td></tr></table></figure>
+
+<p>在ES5版本中，我们需要添加\n以在字符串中添加新行。在模板字符串中，我们不需要这样做。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ES5 Version</span></span><br><span class="line"><span class="keyword">function</span> greet(name) &#123;</span><br><span class="line">  <span class="built_in">return</span> <span class="string">'Hello '</span> + name + <span class="string">'!'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ES6 Version</span></span><br><span class="line"><span class="keyword">function</span> greet(name) &#123;</span><br><span class="line">  <span class="built_in">return</span> `Hello <span class="variable">$&#123;name&#125;</span> !`;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 ES5 版本中，如果需要在字符串中添加表达式或值，则需要使用<code>+</code>运算符。在模板字符串s中，我们可以使用<code>${expr}</code>嵌入一个表达式，这使其比 ES5 版本更整洁</p>
+<blockquote>
+<p><strong>什么是对象解构</strong></p>
+</blockquote>
+<p>对象析构是从对象或数组中获取或提取值的一种新的、更简洁的方法。假设有如下的对象。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const employee = &#123;</span><br><span class="line">  firstName: <span class="string">"Marko"</span>,</span><br><span class="line">  lastName: <span class="string">"Polo"</span>,</span><br><span class="line">  position: <span class="string">"Software Developer"</span>,</span><br><span class="line">  yearHired: 2017</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>从对象获取属性，早期方法是创建一个与对象属性同名的变量。这种方法很麻烦，因为我们要为每个属性创建一个新变量。假设我们有一个大对象，它有很多属性和方法，用这种方法提取属性会很麻烦。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var firstName = employee.firstName;</span><br><span class="line">var lastName = employee.lastName;</span><br><span class="line">var position = employee.position;</span><br><span class="line">var yearHired = employee.yearHired;</span><br></pre></td></tr></table></figure>
+
+<p>使用解构方式语法就变得简洁多了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; firstName, lastName, position, yearHired &#125; = employee;</span><br></pre></td></tr></table></figure>
+
+<p>我们还可以为属性取别名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> &#123; firstName: fName, lastName: lName, position, yearHired &#125; = employee;</span><br></pre></td></tr></table></figure>
+
+<p>当然如果属性值为 undefined 时，我们还可以指定默认值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> &#123; firstName = <span class="string">"Mark"</span>, lastName: lName, position, yearHired &#125; = employee;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>什么是Proxy</strong></p>
+</blockquote>
+<p>Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”，即对编程语言进行编程。</p>
+<p>Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。</p>
+<blockquote>
+<p><strong>写一个通用的事件侦听器函数</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">const EventUtils = &#123;</span><br><span class="line">  <span class="comment"># 视能力分别使用dom0||dom2||IE方式 来绑定事件</span></span><br><span class="line">  <span class="comment"># 添加事件</span></span><br><span class="line">  addEvent: <span class="keyword">function</span>(element, <span class="built_in">type</span>, handler) &#123;</span><br><span class="line">    <span class="keyword">if</span> (element.addEventListener) &#123;</span><br><span class="line">      element.addEventListener(<span class="built_in">type</span>, handler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) &#123;</span><br><span class="line">      element.attachEvent(<span class="string">"on"</span> + <span class="built_in">type</span>, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      element[<span class="string">"on"</span> + <span class="built_in">type</span>] = handler;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 移除事件</span></span><br><span class="line">  removeEvent: <span class="keyword">function</span>(element, <span class="built_in">type</span>, handler) &#123;</span><br><span class="line">    <span class="keyword">if</span> (element.removeEventListener) &#123;</span><br><span class="line">      element.removeEventListener(<span class="built_in">type</span>, handler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.detachEvent) &#123;</span><br><span class="line">      element.detachEvent(<span class="string">"on"</span> + <span class="built_in">type</span>, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      element[<span class="string">"on"</span> + <span class="built_in">type</span>] = null;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 获取事件目标</span></span><br><span class="line">  getTarget: <span class="keyword">function</span>(event) &#123;</span><br><span class="line">    <span class="built_in">return</span> event.target || event.srcElement;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 获取 event 对象的引用，取到事件的所有信息，确保随时能使用 event</span></span><br><span class="line">  getEvent: <span class="keyword">function</span>(event) &#123;</span><br><span class="line">    <span class="built_in">return</span> event || window.event;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 阻止事件（主要是事件冒泡，因为 IE 不支持事件捕获）</span></span><br><span class="line">  stopPropagation: <span class="keyword">function</span>(event) &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.stopPropagation) &#123;</span><br><span class="line">      event.stopPropagation();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 取消事件的默认行为</span></span><br><span class="line">  preventDefault: <span class="keyword">function</span>(event) &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.preventDefault) &#123;</span><br><span class="line">      event.preventDefault();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.returnValue = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>函数式编程? JS的哪些特性使其成为函数式语言的候选语言</strong></p>
+</blockquote>
+<p>函数式编程（通常缩写为FP）是通过编写纯函数，避免共享状态、可变数据、副作用 来构建软件的过程。数式编程是声明式 的而不是命令式 的，应用程序的状态是通过纯函数流动的。与面向对象编程形成对比，面向对象中应用程序的状态通常与对象中的方法共享和共处。</p>
+<p>函数式编程是一种编程范式 ，这意味着它是一种基于一些基本的定义原则（如上所列）思考软件构建的方式。当然，编程范式的其他示例也包括面向对象编程和过程编程。</p>
+<p>函数式的代码往往比命令式或面向对象的代码更简洁，更可预测，更容易测试。</p>
+<blockquote>
+<p><strong>高阶函数</strong></p>
+</blockquote>
+<p>高阶函数只是将函数作为参数或返回值的函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> higherOrderFunction(param,callback)&#123;</span><br><span class="line">    <span class="built_in">return</span> callback(param);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>为什么函数被称为一等公民</strong></p>
+</blockquote>
+<p>在JavaScript中，函数不仅拥有一切传统函数的使用方式（声明和调用），而且可以做到像简单值一样:</p>
+<ul>
+<li>赋值（<code>var func = function(){}</code>）、</li>
+<li>传参(<code>function func(x,callback){callback();}</code>)、</li>
+<li>返回(<code>function(){return function(){}}</code>)，</li>
+</ul>
+<p>这样的函数也称之为第一级函数（<code>First-class Function</code>）。不仅如此，JavaScript中的函数还充当了类的构造函数的作用，同时又是一个Function类的实例(instance)。这样的多重身份让JavaScript的函数变得非常重要。</p>
+<blockquote>
+<p><strong>手动实现 <code>Array.prototype.map 方法</code></strong></p>
+</blockquote>
+<p>map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> map(arr, mapCallback) &#123;</span><br><span class="line">  <span class="comment"># 首先，检查传递的参数是否正确。</span></span><br><span class="line">  <span class="keyword">if</span> (!Array.isArray(arr) || !arr.length || typeof mapCallback !== <span class="string">'function'</span>) &#123; </span><br><span class="line">    <span class="built_in">return</span> [];</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">let</span> result = [];</span><br><span class="line">    <span class="comment"># 每次调用此函数时，我们都会创建一个 result 数组</span></span><br><span class="line">    <span class="comment"># 因为我们不想改变原始数组。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">let</span> i = 0, len = arr.length; i &lt; len; i++) &#123;</span><br><span class="line">      result.push(mapCallback(arr[i], i, arr)); </span><br><span class="line">      <span class="comment"># 将 mapCallback 返回的结果 push 到 result 数组中</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>手动实现<code>Array.prototype.filter</code>方法</strong></p>
+</blockquote>
+<p><code>filter()</code>方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> filter(arr, filterCallback) &#123;</span><br><span class="line">  <span class="comment"># 首先，检查传递的参数是否正确。</span></span><br><span class="line">  <span class="keyword">if</span> (!Array.isArray(arr) || !arr.length || typeof filterCallback !== <span class="string">'function'</span>) </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">return</span> [];</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">let</span> result = [];</span><br><span class="line">     <span class="comment"># 每次调用此函数时，我们都会创建一个 result 数组</span></span><br><span class="line">     <span class="comment"># 因为我们不想改变原始数组。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">let</span> i = 0, len = arr.length; i &lt; len; i++) &#123;</span><br><span class="line">      <span class="comment"># 检查 filterCallback 的返回值是否是真值</span></span><br><span class="line">      <span class="keyword">if</span> (filterCallback(arr[i], i, arr)) &#123; </span><br><span class="line">      <span class="comment"># 如果条件为真，则将数组元素 push 到 result 中</span></span><br><span class="line">        result.push(arr[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> result; <span class="comment"># return the result array</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>手动实现<code>Array.prototype.reduce</code>方法</strong></p>
+</blockquote>
+<p>reduce()方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> reduce(arr, reduceCallback, initialValue) &#123;</span><br><span class="line">  <span class="comment"># 首先，检查传递的参数是否正确。</span></span><br><span class="line">  <span class="keyword">if</span> (!Array.isArray(arr) || !arr.length || typeof reduceCallback !== <span class="string">'function'</span>) </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">return</span> [];</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment"># 如果没有将initialValue传递给该函数，我们将使用第一个数组项作为initialValue</span></span><br><span class="line">    <span class="built_in">let</span> hasInitialValue = initialValue !== undefined;</span><br><span class="line">    <span class="built_in">let</span> value = hasInitialValue ? initialValue : arr[0];</span><br><span class="line"></span><br><span class="line">    <span class="comment">#  如果有传递 initialValue，则索引从 1 开始，否则从 0 开始</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">let</span> i = hasInitialValue ? 0 : 1, len = arr.length; i &lt; len; i++) &#123;</span><br><span class="line">      value = reduceCallback(value, arr[i], i, arr); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>手写call、apply及bind函数</strong></p>
+</blockquote>
+<p>– call 函数的实现步骤：</p>
+<ul>
+<li>1.判断调用对象是否为函数，即使我们是定义在函数的原型上的，但是可能出现使用 call 等方式调用的情况。</li>
+<li>2.判断传入上下文对象是否存在，如果不存在，则设置为 window 。</li>
+<li>3.处理传入的参数，截取第一个参数后的所有参数。</li>
+<li>4.将函数作为上下文对象的一个属性。</li>
+<li>5.使用上下文对象来调用这个方法，并保存返回结果。</li>
+<li>6.删除刚才新增的属性。</li>
+<li>7.返回结果</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># call函数实现</span></span><br><span class="line">Function.prototype.myCall = <span class="keyword">function</span>(context) &#123;</span><br><span class="line">  <span class="comment"># 判断调用对象</span></span><br><span class="line">  <span class="keyword">if</span> (typeof this !== <span class="string">"function"</span>) &#123;</span><br><span class="line">    console.error(<span class="string">"type error"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 获取参数</span></span><br><span class="line">  <span class="built_in">let</span> args = [...arguments].slice(1),</span><br><span class="line">    result = null;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 判断 context 是否传入，如果未传入则设置为 window</span></span><br><span class="line">  context = context || window;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 将调用函数设为对象的方法</span></span><br><span class="line">  context.fn = this;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 调用函数</span></span><br><span class="line">  result = context.fn(...args);</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 将属性删除</span></span><br><span class="line">  delete context.fn;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>– apply 函数的实现步骤：</p>
+<ul>
+<li>1.判断调用对象是否为函数，即使我们是定义在函数的原型上的，但是可能出现使用 call 等方式调用的情况。</li>
+<li>2.判断传入上下文对象是否存在，如果不存在，则设置为 window 。</li>
+<li>3.将函数作为上下文对象的一个属性。</li>
+<li>4.判断参数值是否传入</li>
+<li>5.使用上下文对象来调用这个方法，并保存返回结果。</li>
+<li>6.删除刚才新增的属性</li>
+<li>7.返回结果</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># apply 函数实现</span></span><br><span class="line"></span><br><span class="line">Function.prototype.myApply = <span class="keyword">function</span>(context) &#123;</span><br><span class="line">  <span class="comment"># 判断调用对象是否为函数</span></span><br><span class="line">  <span class="keyword">if</span> (typeof this !== <span class="string">"function"</span>) &#123;</span><br><span class="line">    throw new TypeError(<span class="string">"Error"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">let</span> result = null;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 判断 context 是否存在，如果未传入则为 window</span></span><br><span class="line">  context = context || window;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 将函数设为对象的方法</span></span><br><span class="line">  context.fn = this;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 调用方法</span></span><br><span class="line">  <span class="keyword">if</span> (arguments[1]) &#123;</span><br><span class="line">    result = context.fn(...arguments[1]);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    result = context.fn();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 将属性删除</span></span><br><span class="line">  delete context.fn;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>– bind 函数的实现步骤：</p>
+<ul>
+<li>1.判断调用对象是否为函数，即使我们是定义在函数的原型上的，但是可能出现使用 call 等方式调用的情况。</li>
+<li>2.保存当前函数的引用，获取其余传入参数值。</li>
+<li>3.创建一个函数返回</li>
+<li>4.函数内部使用 apply 来绑定函数调用，需要判断函数作为构造函数的情况，这个时候需要传入当前函数的 this 给 apply 调用，其余情况都传入指定的上下文对象。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bind 函数实现</span></span><br><span class="line">Function.prototype.myBind = <span class="keyword">function</span>(context) &#123;</span><br><span class="line">  <span class="comment"># 判断调用对象是否为函数</span></span><br><span class="line">  <span class="keyword">if</span> (typeof this !== <span class="string">"function"</span>) &#123;</span><br><span class="line">    throw new TypeError(<span class="string">"Error"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 获取参数</span></span><br><span class="line">  var args = [...arguments].slice(1),</span><br><span class="line">    fn = this;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> <span class="keyword">function</span> <span class="function"><span class="title">Fn</span></span>() &#123;</span><br><span class="line">    <span class="comment"># 根据调用方式，传入不同绑定值</span></span><br><span class="line">    <span class="built_in">return</span> fn.apply(</span><br><span class="line">      this instanceof Fn ? this : context,</span><br><span class="line">      args.concat(...arguments)</span><br><span class="line">    );</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>函数柯里化的实现</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 函数柯里化指的是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> curry(fn, args) &#123;</span><br><span class="line">  <span class="comment"># 获取函数需要的参数长度</span></span><br><span class="line">  <span class="built_in">let</span> length = fn.length;</span><br><span class="line"></span><br><span class="line">  args = args || [];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="built_in">let</span> subArgs = args.slice(0);</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 拼接得到现有的所有参数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; arguments.length; i++) &#123;</span><br><span class="line">      subArgs.push(arguments[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 判断参数的长度是否已经满足函数所需参数的长度</span></span><br><span class="line">    <span class="keyword">if</span> (subArgs.length &gt;= length) &#123;</span><br><span class="line">      <span class="comment"># 如果满足，执行函数</span></span><br><span class="line">      <span class="built_in">return</span> fn.apply(this, subArgs);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment"># 如果不满足，递归返回科里化的函数，等待参数的传入</span></span><br><span class="line">      <span class="built_in">return</span> curry.call(this, fn, subArgs);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># es6 实现</span></span><br><span class="line"><span class="keyword">function</span> curry(fn, ...args) &#123;</span><br><span class="line">  <span class="built_in">return</span> fn.length &lt;= args.length ? fn(...args) : curry.bind(null, fn, ...args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>Promise?手写实现</strong></p>
+</blockquote>
+<p>Promise，翻译过来是承诺，承诺它过一段时间会给你一个结果。从编程讲Promise 是异步编程的一种解决方案。下面是Promise在<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">MDN</a>的相关说明：</p>
+<p>Promise 对象是一个代理对象（代理一个值），被代理的值在Promise对象创建时可能是未知的。它允许你为异步操作的成功和失败分别绑定相应的处理方法（handlers）。 这让异步方法可以像同步方法那样返回值，但并不是立即返回最终执行结果，而是一个能代表未来出现的结果的promise对象。</p>
+<p>一个 Promise有以下几种状态:</p>
+<ul>
+<li>pending: 初始状态，既不是成功，也不是失败状态。</li>
+<li>fulfilled: 意味着操作成功完成。</li>
+<li>rejected: 意味着操作失败。</li>
+</ul>
+<p>这个承诺一旦从等待状态变成为其他状态就永远不能更改状态了，也就是说一旦状态变为 fulfilled/rejected 后，就不能再次改变。 可能光看概念大家不理解Promise，我们举个简单的栗子；</p>
+<p>假如我有个女朋友，下周一是她生日，我答应她生日给她一个惊喜，那么从现在开始这个承诺就进入等待状态，等待下周一的到来，然后状态改变。如果下周一我如约给了女朋友惊喜，那么这个承诺的状态就会由pending切换为fulfilled，表示承诺成功兑现，一旦是这个结果了，就不会再有其他结果，即状态不会在发生改变；反之如果当天我因为工作太忙加班，把这事给忘了，说好的惊喜没有兑现，状态就会由pending切换为rejected，时间不可倒流，所以状态也不能再发生变化。</p>
+<p>其实Promise也是存在一些缺点的，比如无法取消 Promise，错误需要通过回调函数捕获。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> myPromise(constructor)&#123;</span><br><span class="line">    <span class="built_in">let</span> self=this;</span><br><span class="line">    self.status=<span class="string">"pending"</span> <span class="comment"># 定义状态改变前的初始状态</span></span><br><span class="line">    self.value=undefined;<span class="comment"># 定义状态为resolved的时候的状态</span></span><br><span class="line">    self.reason=undefined;<span class="comment"># 定义状态为rejected的时候的状态</span></span><br><span class="line">    <span class="keyword">function</span> resolve(value)&#123;</span><br><span class="line">        <span class="comment"># 两个==="pending"，保证了状态的改变是不可逆的</span></span><br><span class="line">       <span class="keyword">if</span>(self.status===<span class="string">"pending"</span>)&#123;</span><br><span class="line">          self.value=value;</span><br><span class="line">          self.status=<span class="string">"resolved"</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">function</span> reject(reason)&#123;</span><br><span class="line">        <span class="comment"># 两个==="pending"，保证了状态的改变是不可逆的</span></span><br><span class="line">       <span class="keyword">if</span>(self.status===<span class="string">"pending"</span>)&#123;</span><br><span class="line">          self.reason=reason;</span><br><span class="line">          self.status=<span class="string">"rejected"</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 捕获构造异常</span></span><br><span class="line">    try&#123;</span><br><span class="line">       constructor(resolve,reject);</span><br><span class="line">    &#125;catch(e)&#123;</span><br><span class="line">       reject(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 定义链式调用的then方法</span></span><br><span class="line">myPromise.prototype.then=<span class="keyword">function</span>(onFullfilled,onRejected)&#123;</span><br><span class="line">   <span class="built_in">let</span> self=this;</span><br><span class="line">   switch(self.status)&#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"resolved"</span>:</span><br><span class="line">        onFullfilled(self.value);</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"rejected"</span>:</span><br><span class="line">        onRejected(self.reason);</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">      default:       </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>什么是 <code>async/await</code> 及其如何工作,有什么优缺点</strong></p>
+</blockquote>
+<p><code>async/await</code>是一种建立在Promise之上的编写异步或非阻塞代码的新方法，被普遍认为是 JS异步操作的最终且最优雅的解决方案。相对于 Promise 和回调，它的可读性和简洁度都更高。毕竟一直then()也很烦。</p>
+<p><code>async</code> 是异步的意思，而 <code>await</code> 是 <code>async wait</code>的简写，即异步等待。</p>
+<p>所以从语义上就很好理解 async 用于声明一个 function 是异步的，而await 用于等待一个异步方法执行完成。</p>
+<p>一个函数如果加上 async ，那么该函数就会返回一个 Promise;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">async <span class="keyword">function</span> <span class="function"><span class="title">test</span></span>() &#123;</span><br><span class="line">  <span class="built_in">return</span> <span class="string">"1"</span></span><br><span class="line">&#125;</span><br><span class="line">console.log(<span class="built_in">test</span>()) <span class="comment"># -&gt; Promise &#123;&lt;resolved&gt;: "1"&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到输出的是一个Promise对象。所以，async 函数返回的是一个 Promise 对象，如果在 async 函数中直接 return 一个直接量，async 会把这个直接量通过<code>PromIse.resolve()</code>封装成Promise对象返回。</p>
+<p>相比于 <code>Promise</code>，<code>async/await</code>能更好地处理 then 链</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> takeLongTime(n) &#123;</span><br><span class="line">    <span class="built_in">return</span> new Promise(resolve =&gt; &#123;</span><br><span class="line">        setTimeout(() =&gt; resolve(n + 200), n);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> step1(n) &#123;</span><br><span class="line">    console.log(`step1 with <span class="variable">$&#123;n&#125;</span>`);</span><br><span class="line">    <span class="built_in">return</span> takeLongTime(n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> step2(n) &#123;</span><br><span class="line">    console.log(`step2 with <span class="variable">$&#123;n&#125;</span>`);</span><br><span class="line">    <span class="built_in">return</span> takeLongTime(n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> step3(n) &#123;</span><br><span class="line">    console.log(`step3 with <span class="variable">$&#123;n&#125;</span>`);</span><br><span class="line">    <span class="built_in">return</span> takeLongTime(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在分别用 <code>Promise</code> 和<code>async/await</code>来实现这三个步骤的处理。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用Promise</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">doIt</span></span>() &#123;</span><br><span class="line">    console.time(<span class="string">"doIt"</span>);</span><br><span class="line">    const time1 = 300;</span><br><span class="line">    step1(time1)</span><br><span class="line">        .<span class="keyword">then</span>(time2 =&gt; step2(time2))</span><br><span class="line">        .<span class="keyword">then</span>(time3 =&gt; step3(time3))</span><br><span class="line">        .<span class="keyword">then</span>(result =&gt; &#123;</span><br><span class="line">            console.log(`result is <span class="variable">$&#123;result&#125;</span>`);</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br><span class="line">doIt();</span><br><span class="line"><span class="comment"># step1 with 300</span></span><br><span class="line"><span class="comment"># step2 with 500</span></span><br><span class="line"><span class="comment"># step3 with 700</span></span><br><span class="line"><span class="comment"># result is 900</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用async/await</span></span><br><span class="line">async <span class="keyword">function</span> <span class="function"><span class="title">doIt</span></span>() &#123;</span><br><span class="line">    console.time(<span class="string">"doIt"</span>);</span><br><span class="line">    const time1 = 300;</span><br><span class="line">    const time2 = await step1(time1);</span><br><span class="line">    const time3 = await step2(time2);</span><br><span class="line">    const result = await step3(time3);</span><br><span class="line">    console.log(`result is <span class="variable">$&#123;result&#125;</span>`);</span><br><span class="line">&#125;</span><br><span class="line">doIt();</span><br></pre></td></tr></table></figure>
+
+<p>结果和之前的 Promise 实现是一样的，但是这个代码看起来是不是清晰得多，优雅整洁，几乎跟同步代码一样。</p>
+<p>await关键字只能在async function中使用。在任何非async function的函数中使用await关键字都会抛出错误。await关键字在执行下一行代码之前等待右侧表达式(可能是一个Promise)返回。</p>
+<ul>
+<li>优缺点</li>
+</ul>
+<p><code>async/await</code>的优势在于处理 then 的调用链，能够更清晰准确的写出代码，并且也能优雅地解决回调地狱问题。当然也存在一些缺点，因为 await 将异步代码改造成了同步代码，如果多个异步代码没有依赖性却使用了 await 会导致性能上的降低</p>
+<blockquote>
+<p><strong>webpack ?配置有哪些</strong></p>
+</blockquote>
+<p>静态资源打包器，开发依赖插件：处理ES6兼容的babel（babel官网有教程）、处理浏览器兼容的postcss（自动添加前缀）、webpack-dev-server（热更新）、less-loader、file-loader、clean-webpack-plugin（打包前清理源目录，防止旧资源占空间）</p>
+<p>配置：entry（入口）、output（打包名，输出路径，仅一个）、mode（切换开发与生产环境）、loader（转码）、plugin（插件）。script（package.json执行webpack命令的快捷方式）</p>
+<p>react-app-rewired 不用 eject（暴露配置不可逆） 也可以操作webpack配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">module.exports=&#123;</span><br><span class="line">    <span class="comment"># 入口文件的配置项</span></span><br><span class="line">    entry:&#123;&#125;,</span><br><span class="line">    <span class="comment"># 出口文件的配置项</span></span><br><span class="line">    output:&#123;&#125;,</span><br><span class="line">    <span class="comment"># 模块：例如解读CSS,图片如何转换，压缩</span></span><br><span class="line">    module:&#123;&#125;,</span><br><span class="line">    <span class="comment"># 插件，用于生产模版和各项功能</span></span><br><span class="line">    plugins:[],</span><br><span class="line">    <span class="comment"># 配置webpack开发服务功能</span></span><br><span class="line">    devServer:&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>前端路由后端路由区别</strong></p>
+</blockquote>
+<p>单页面用的就是前端路由（不同的url对应不同的组件模块，只请求数据，响应快，用户体验好，分担了服务器端的压力，前后端分离，但在浏览器前进后退时会重新发送请求)</p>
+<p>传统多页面应用使用后端路由（可以利用缓存显示完整页面，但网速不稳定时，不同页面第一次访问较慢，用户体验差）</p>
+<blockquote>
+<p><strong>hash 和 history 区别</strong></p>
+</blockquote>
+<p>hash：即锚点，用来做页面定位的（官网首页导航），不过也可以来做路由（hash不会再http请求中，对后端无影响，改变hash页面也不会重载，但hash做路由就不能用它做页面定位了，并且url体积有限制，hashchange）</p>
+<p>history：做路由，前、后端url要一致，可控制浏览器前进、后退和刷新，可以在url里放参数，也可以将数据存到对象里（记录当前页字体颜色、滚动条位置，相关进度情况等）</p>
+<blockquote>
+<p><strong>页面回流和重绘</strong></p>
+</blockquote>
+<p>回流：DOM结构变化，或display引起的元素的隐藏显示，用户对浏览器视窗的调整都会造成页面回流</p>
+<p>重绘：回流必将引起重绘，样式改变且不回流也会重绘，比如背景色，visibility控制元素的隐藏显示</p>
+<p>性能优化：减少这两个过程可以提高系统性能，样式通过类名改变而改变，循环中重复使用的值存变量,操作被display隐藏的元素不会引起回流和重绘，Chrome的lightHouse前端性能优化辅助工具</p>
+<blockquote>
+<p><strong>get、post的区别</strong></p>
+</blockquote>
+<ol>
+<li><p>get传参方式是通过地址栏URL传递，是可以直接看到get传递的参数，post传参方式参数URL不可见，get把请求的数据在URL后通过？连接，通过&amp;进行参数分割。psot将参数存放在HTTP的包体内</p>
+</li>
+<li><p>get传递数据是通过URL进行传递，对传递的数据长度是受到URL大小的限制，URL最大长度是2048个字符。post没有长度限制</p>
+</li>
+<li><p>get后退不会有影响，post后退会重新进行提交</p>
+</li>
+<li><p>get请求可以被缓存，post不可以被缓存</p>
+</li>
+<li><p>get请求只URL编码，post支持多种编码方式</p>
+</li>
+<li><p>get请求的记录会留在历史记录中，post请求不会留在历史记录</p>
+</li>
+<li><p>get只支持ASCII字符，post没有字符类型限制</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>http的响应码及含义</strong></p>
+</blockquote>
+<p>1xx(临时响应)</p>
+<p>100: 请求者应当继续提出请求。</p>
+<p>101(切换协议) 请求者已要求服务器切换协议，服务器已确认并准备进行切换。</p>
+<p>2xx(成功)</p>
+<p>200：正确的请求返回正确的结果</p>
+<p>201：表示资源被正确的创建。比如说，我们 POST 用户名、密码正确创建了一个用户就可以返回 201。</p>
+<p>202：请求是正确的，但是结果正在处理中，这时候客户端可以通过轮询等机制继续请求。</p>
+<p>3xx(已重定向)</p>
+<p>300：请求成功，但结果有多种选择。</p>
+<p>301：请求成功，但是资源被永久转移。</p>
+<p>303：使用 GET 来访问新的地址来获取资源。</p>
+<p>304：请求的资源并没有被修改过</p>
+<p>4xx(请求错误)</p>
+<p>400：请求出现错误，比如请求头不对等。</p>
+<p>401：没有提供认证信息。请求的时候没有带上 Token 等。</p>
+<p>402：为以后需要所保留的状态码。</p>
+<p>403：请求的资源不允许访问。就是说没有权限。</p>
+<p>404：请求的内容不存在。</p>
+<p>5xx(服务器错误)</p>
+<p>500：服务器错误。</p>
+<p>501：请求还没有被实现。</p>
+
+        </div>
+
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/01/13/mongo/">mongo</a>
+            
+        </section>
+        <div style="margin-top: 40px;padding: 20px 0 10px;border-top: 1px solid #eeeeee;">##发表评论##</div>
+        <div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'JieYangAdmin',
+  repo: 'JieYangAdmin.github.io',
+  oauth: {
+    client_id: 'f41a9fb23d972e1d0767',
+    client_secret: '8b2e926f03aeed34a0882985f705ab0471a836a2',
+  },
+})
+gitment.render('container')
+</script>
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Crazy-Y | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+    <div style="text-align: center; font-size: 14px;"><span id="timeDate" style="text-align: center; font-size: 14px;">载入天数...</span><span id="times" style="text-align: center; font-size: 14px;">载入时分秒...</span></div>
+</footer>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("10/30/2019 12:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+        <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    </div>
+</body>
+</html>
